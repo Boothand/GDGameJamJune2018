@@ -11,7 +11,13 @@ config_version=3
 [application]
 
 config/name="GDGameJamJune2018"
+run/main_scene="res://Scenes/GamePlayScene.tscn"
 config/icon="res://icon.png"
+
+[global]
+
+language=false
+Language=false
 
 [rendering]
 

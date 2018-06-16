@@ -1,0 +1,751 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Dog/Dog.gd" type="Script" id=1]
+[ext_resource path="res://PlaceHolderDogPart.png" type="Texture" id=2]
+[ext_resource path="res://firefox_2018-06-16_11-19-28.png" type="Texture" id=3]
+[ext_resource path="res://Dog/Old Animations/Idle.tres" type="Animation" id=4]
+[ext_resource path="res://Dog/Old Animations/Walk1.tres" type="Animation" id=5]
+[ext_resource path="res://Dog/DogAnimator.gd" type="Script" id=6]
+[ext_resource path="res://Dog/Old Animations/BasePose.tres" type="Animation" id=7]
+[ext_resource path="res://Dog/Player_Input.gd" type="Script" id=8]
+
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 86.0171
+height = 105.05
+
+[node name="Dog" type="KinematicBody2D" index="0"]
+
+position = Vector2( 539.013, 534 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+move_speed = 150.0
+movement_responsiveness = 5.0
+jump_force = 500.0
+turnaround_threshold = 1.0
+
+[node name="Dog_Root" type="Node2D" parent="." index="0"]
+
+position = Vector2( 5.79767, -18.9259 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Hip" type="Node2D" parent="Dog_Root" index="0"]
+
+position = Vector2( -71.866, -125.408 )
+rotation = 0.119218
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip" index="0"]
+
+position = Vector2( 26.1402, 9.59275 )
+rotation = -1.5708
+scale = Vector2( 2.76425, 2.07326 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Spine1" type="Node2D" parent="Dog_Root/Dog_Hip" index="1"]
+
+position = Vector2( 59.8856, -3.18073 )
+rotation = -0.09382
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1" index="0"]
+
+position = Vector2( 27.3562, 14.0335 )
+rotation = -1.5708
+scale = Vector2( 3.26101, 2.33856 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Neck" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1" index="1"]
+
+position = Vector2( 85.2295, 5.48441 )
+rotation = -0.567784
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck" index="0"]
+
+position = Vector2( 18, 4.26622 )
+rotation = -1.5708
+scale = Vector2( 1.92934, 1 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Head" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck" index="1"]
+
+position = Vector2( 48.8156, -1.90674 )
+rotation = 0.657122
+scale = Vector2( 0.999999, 0.999999 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Dog_Head_KNOB" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck/Dog_Head" index="0"]
+
+position = Vector2( 33.8895, -2.66394 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true,
+"_edit_lock_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck/Dog_Head" index="1"]
+
+position = Vector2( 21.2882, -2.08862 )
+rotation = -1.5708
+scale = Vector2( 1.36222, 1.13701 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Jaw" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck/Dog_Head" index="2"]
+
+position = Vector2( 5.42017, 19.1945 )
+rotation = 0.206909
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck/Dog_Head/Dog_Jaw" index="0"]
+
+position = Vector2( 16.8933, -2.35104 )
+rotation = -1.5708
+scale = Vector2( 0.608626, 0.953886 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Jaw_KNOB" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck/Dog_Head/Dog_Jaw" index="1"]
+
+position = Vector2( 45.9978, 0.166534 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true,
+"_edit_lock_": true
+}
+
+[node name="Dog_Tongue" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck/Dog_Head/Dog_Jaw" index="2"]
+
+editor/display_folded = true
+position = Vector2( 22.5638, -8.14081 )
+rotation = 1.43569
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck/Dog_Head/Dog_Jaw/Dog_Tongue" index="0"]
+
+position = Vector2( 10.1576, 0.345295 )
+rotation = -1.5708
+scale = Vector2( 0.48637, 0.517754 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Dog_Jaw_KNOB" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck/Dog_Head/Dog_Jaw/Dog_Tongue" index="1"]
+
+position = Vector2( 25.7544, -0.903442 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Ear_R" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck/Dog_Head" index="3"]
+
+position = Vector2( 8.70367, -10.3996 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Ear_R_KNOB" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck/Dog_Head/Ear_R" index="0"]
+
+position = Vector2( -1.57281, -7.64874 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_lock_": true
+}
+
+[node name="PlaceHolderDogPart2" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck/Dog_Head/Ear_R" index="1"]
+
+position = Vector2( -1.19507, -3.54337 )
+rotation = -3.23702
+scale = Vector2( 0.323947, 0.254519 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ear_R2" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck/Dog_Head" index="4"]
+
+position = Vector2( 11.0278, -15.44 )
+rotation = 0.0550395
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Ear_R_KNOB" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck/Dog_Head/Ear_R2" index="0"]
+
+position = Vector2( -0.896545, -9.88953 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_lock_": true
+}
+
+[node name="PlaceHolderDogPart3" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Neck/Dog_Head/Ear_R2" index="1"]
+
+position = Vector2( 0.0338135, -5.67331 )
+rotation = 3.04684
+scale = Vector2( 0.424865, 0.292599 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Front_Thigh_R" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1" index="2"]
+
+position = Vector2( 97.5905, 35.7287 )
+rotation = 1.06199
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_R" index="0"]
+
+position = Vector2( 15.2065, 2.5591 )
+rotation = -1.5708
+scale = Vector2( 1.54557, 1.22738 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Front_Leg_R" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_R" index="1"]
+
+position = Vector2( 48.09, -9.26141 )
+rotation = -0.0426619
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_R/Dog_Front_Leg_R" index="0"]
+
+position = Vector2( 23.2703, -3.23351 )
+rotation = -1.5708
+scale = Vector2( 0.976921, 1.45605 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Front_Leg2_R" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_R/Dog_Front_Leg_R" index="1"]
+
+position = Vector2( 56.9548, -0.847107 )
+rotation = -0.607927
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_R/Dog_Front_Leg_R/Dog_Front_Leg2_R" index="0"]
+
+position = Vector2( 10.216, 4.45283 )
+rotation = -1.05744
+scale = Vector2( 0.501312, 0.612734 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Front_Foot_R" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_R/Dog_Front_Leg_R/Dog_Front_Leg2_R" index="1"]
+
+position = Vector2( 21.9839, 12.1073 )
+rotation = -1.0398
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_R/Dog_Front_Leg_R/Dog_Front_Leg2_R/Dog_Front_Foot_R" index="0"]
+
+position = Vector2( 8.71149, -2.4176 )
+rotation = -1.5708
+scale = Vector2( 0.633745, 0.443128 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Front_Foot_R_KNOB" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_R/Dog_Front_Leg_R/Dog_Front_Leg2_R/Dog_Front_Foot_R" index="1"]
+
+position = Vector2( 20.2881, 0.44046 )
+rotation = -3.72529e-009
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true,
+"_edit_lock_": true
+}
+
+[node name="Dog_Front_Thigh_L" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1" index="3"]
+
+position = Vector2( 72.5536, 42.1153 )
+rotation = 0.702691
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_L" index="0"]
+
+position = Vector2( 15.7432, 0.0480625 )
+rotation = -1.5708
+scale = Vector2( 0.938609, 0.867791 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Front_Leg_L" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_L" index="1"]
+
+position = Vector2( 32.6134, 2.0542 )
+rotation = 2.2407
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_L/Dog_Front_Leg_L" index="0"]
+
+position = Vector2( 25.8748, -1.5717 )
+rotation = -1.5708
+scale = Vector2( 0.792274, 1.13469 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Front_Leg2_L" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_L/Dog_Front_Leg_L" index="1"]
+
+position = Vector2( 51.4358, -2.27814 )
+rotation = -0.788475
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_L/Dog_Front_Leg_L/Dog_Front_Leg2_L" index="0"]
+
+position = Vector2( 15.5252, 2.82409 )
+rotation = -1.5708
+scale = Vector2( 0.658977, 0.592893 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Front_Foot_L" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_L/Dog_Front_Leg_L/Dog_Front_Leg2_L" index="1"]
+
+position = Vector2( 28.8458, 6.80371 )
+rotation = -1.53006
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_L/Dog_Front_Leg_L/Dog_Front_Leg2_L/Dog_Front_Foot_L" index="0"]
+
+position = Vector2( 8.71149, -2.4176 )
+rotation = -1.5708
+scale = Vector2( 0.633745, 0.443128 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Front_Foot_L_KNOB" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Spine1/Dog_Front_Thigh_L/Dog_Front_Leg_L/Dog_Front_Leg2_L/Dog_Front_Foot_L" index="1"]
+
+position = Vector2( 19.8592, 0.465729 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true,
+"_edit_lock_": true
+}
+
+[node name="Dog_Hind_Thigh_R" type="Node2D" parent="Dog_Root/Dog_Hip" index="2"]
+
+position = Vector2( -5.96606, 12.2337 )
+rotation = 0.846159
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_R" index="0"]
+
+position = Vector2( 19.4451, 7.69003 )
+rotation = -1.5708
+scale = Vector2( 1.24749, 1.14829 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Hind_Leg_R" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_R" index="1"]
+
+position = Vector2( 51.2886, 21.9931 )
+rotation = 1.2321
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_R/Dog_Hind_Leg_R" index="0"]
+
+position = Vector2( 13.2854, 3.28765 )
+rotation = -1.5708
+scale = Vector2( 1.24718, 1.36989 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Hind_Leg2_R" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_R/Dog_Hind_Leg_R" index="1"]
+
+position = Vector2( 46.5211, 5.4375 )
+rotation = -0.449142
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_R/Dog_Hind_Leg_R/Dog_Hind_Leg2_R" index="0"]
+
+position = Vector2( 17.5261, -0.110045 )
+rotation = -1.5708
+scale = Vector2( 0.731365, 0.851824 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Hind_Foot_R" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_R/Dog_Hind_Leg_R/Dog_Hind_Leg2_R" index="1"]
+
+position = Vector2( 42.7518, 1.0791 )
+rotation = -1.66783
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_R/Dog_Hind_Leg_R/Dog_Hind_Leg2_R/Dog_Hind_Foot_R" index="0"]
+
+position = Vector2( 8.71149, -2.4176 )
+rotation = -1.5708
+scale = Vector2( 0.633745, 0.443128 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Hind_Foot_R_KNOB" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_R/Dog_Hind_Leg_R/Dog_Hind_Leg2_R/Dog_Hind_Foot_R" index="1"]
+
+position = Vector2( 21.1871, 1.29221 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true,
+"_edit_lock_": true
+}
+
+[node name="Dog_Hind_Thigh_L" type="Node2D" parent="Dog_Root/Dog_Hip" index="3"]
+
+position = Vector2( 0.800171, 11.1161 )
+rotation = 1.5202
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_L" index="0"]
+
+position = Vector2( 15.2065, 2.5591 )
+rotation = -1.5708
+scale = Vector2( 1.54557, 1.22738 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Hind_Leg_L" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_L" index="1"]
+
+position = Vector2( 50.6068, 14.4873 )
+rotation = 1.65129
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_L/Dog_Hind_Leg_L" index="0"]
+
+position = Vector2( 15.1984, -2.35104 )
+rotation = -1.5708
+scale = Vector2( 1, 1.22704 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Hind_Leg2_L" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_L/Dog_Hind_Leg_L" index="1"]
+
+position = Vector2( 53.992, 0.826904 )
+rotation = -1.84921
+scale = Vector2( 0.999999, 0.999999 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_L/Dog_Hind_Leg_L/Dog_Hind_Leg2_L" index="0"]
+
+position = Vector2( 9.74948, -2.35104 )
+rotation = -1.5708
+scale = Vector2( 0.518609, 1 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Hind_Foot_L" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_L/Dog_Hind_Leg_L/Dog_Hind_Leg2_L" index="1"]
+
+position = Vector2( 37.8748, 3.57034 )
+rotation = -1.26653
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_L/Dog_Hind_Leg_L/Dog_Hind_Leg2_L/Dog_Hind_Foot_L" index="0"]
+
+position = Vector2( 8.71149, -2.4176 )
+rotation = -1.5708
+scale = Vector2( 0.633745, 0.443128 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dog_Hind_Foot_L_KNOB" type="Node2D" parent="Dog_Root/Dog_Hip/Dog_Hind_Thigh_L/Dog_Hind_Leg_L/Dog_Hind_Leg2_L/Dog_Hind_Foot_L" index="1"]
+
+position = Vector2( 16.0554, -1.50256 )
+rotation = 2.32831e-010
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_bone_": true,
+"_edit_lock_": true
+}
+
+[node name="Tail01" type="Node2D" parent="Dog_Root/Dog_Hip" index="4"]
+
+position = Vector2( -6.79425, -6.47067 )
+rotation = 0.893378
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="PlaceHolderDogPart" type="Sprite" parent="Dog_Root/Dog_Hip/Tail01" index="0"]
+
+position = Vector2( -12.0754, 12.237 )
+rotation = 0.808288
+scale = Vector2( 0.686659, 0.780352 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tail02" type="Node2D" parent="Dog_Root/Dog_Hip/Tail01" index="1"]
+
+position = Vector2( -24.9121, 22.9709 )
+rotation = 0.0658645
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart2" type="Sprite" parent="Dog_Root/Dog_Hip/Tail01/Tail02" index="0"]
+
+position = Vector2( -9.8138, 21.569 )
+rotation = 0.476833
+scale = Vector2( 0.606027, 0.928382 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tail03" type="Node2D" parent="Dog_Root/Dog_Hip/Tail01/Tail02" index="1"]
+
+position = Vector2( -21.3522, 43.6777 )
+rotation = -1.49582
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PlaceHolderDogPart3" type="Sprite" parent="Dog_Root/Dog_Hip/Tail01/Tail02/Tail03" index="0"]
+
+position = Vector2( -12.5782, -0.197286 )
+rotation = 1.56033
+scale = Vector2( 0.479723, 0.632483 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tail03_KNOB" type="Node2D" parent="Dog_Root/Dog_Hip/Tail01/Tail02/Tail03" index="1"]
+
+position = Vector2( -25.2356, 0.970642 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_lock_": true
+}
+
+[node name="Base Pose Reference" type="Sprite" parent="." index="1"]
+
+visible = false
+modulate = Color( 1, 1, 1, 0.254157 )
+position = Vector2( 16.6268, -103.542 )
+rotation = 3.14159
+scale = Vector2( 0.836317, -0.836317 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Base Pose Reference2" type="Sprite" parent="." index="2"]
+
+modulate = Color( 1, 1, 1, 0.254157 )
+position = Vector2( 23.4542, 128.104 )
+rotation = 3.14159
+scale = Vector2( 0.836317, -0.836317 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationTreePlayer" type="AnimationTreePlayer" parent="." index="3"]
+
+playback_process_mode = 1
+master_player = NodePath("")
+base_path = NodePath("..")
+active = false
+data = {
+"active": false,
+"connections": [ "idle_walk_blend", "out", 0, "anim", "idle_walk_blend", 0, "anim 2", "idle_walk_blend", 1 ],
+"master": NodePath(""),
+"nodes": [ {
+"animation": ExtResource( 4 ),
+"filter": [  ],
+"id": "anim",
+"position": Vector2( 266, 70 ),
+"type": "animation"
+}, {
+"id": "out",
+"position": Vector2( 774, 86 ),
+"type": "output"
+}, {
+"animation": ExtResource( 5 ),
+"filter": [  ],
+"id": "anim 2",
+"position": Vector2( 263, 186 ),
+"type": "animation"
+}, {
+"blend": 0.0,
+"filter": [  ],
+"id": "idle_walk_blend",
+"position": Vector2( 500, 83 ),
+"type": "blend2"
+} ]
+}
+script = ExtResource( 6 )
+movement_blend_speed = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/BasePose = ExtResource( 7 )
+anims/Idle = ExtResource( 4 )
+anims/Walk1 = ExtResource( 5 )
+blend_times = [  ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+
+position = Vector2( 11.9417, -83.591 )
+rotation = 1.5708
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player Input" type="Node" parent="." index="6"]
+
+script = ExtResource( 8 )
+
+

@@ -1,0 +1,888 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Dog/Dog.gd" type="Script" id=1]
+[ext_resource path="res://Dog/SpriteShader.tres" type="Material" id=2]
+[ext_resource path="res://Dog/Idle.anim" type="Animation" id=3]
+[ext_resource path="res://Dog/Walk.anim" type="Animation" id=4]
+
+[sub_resource type="PlaneMesh" id=2]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 2, 2 )
+subdivide_width = 0
+subdivide_depth = 0
+
+[sub_resource type="CapsuleShape" id=1]
+
+radius = 2.30849
+height = 4.1032
+
+[node name="Dog" type="KinematicBody" index="0"]
+
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+collision/safe_margin = 0.001
+script = ExtResource( 1 )
+move_speed = 150.0
+movement_responsiveness = 5.0
+jump_force = 500.0
+turnaround_threshold = 1.0
+
+[node name="Armature" type="Spatial" parent="." index="0"]
+
+editor/display_folded = true
+transform = Transform( 1, -7.10543e-015, 3.01876e-011, -3.01876e-011, -0.000345306, 1, 7.10543e-015, -1, -0.000345306, -7.5417e-016, 0.146122, 0.439859 )
+
+[node name="Skeleton7" type="Skeleton" parent="Armature" index="0"]
+
+bones/0/name = "RootBone"
+bones/0/parent = -1
+bones/0/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/0/enabled = true
+bones/0/bound_children = [  ]
+bones/1/name = "hips"
+bones/1/parent = 0
+bones/1/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/1/enabled = true
+bones/1/bound_children = [ NodePath("Hip Sprite") ]
+bones/2/name = "spine01"
+bones/2/parent = 1
+bones/2/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/2/enabled = true
+bones/2/bound_children = [ NodePath("Spine01 Sprite") ]
+bones/3/name = "spine02"
+bones/3/parent = 2
+bones/3/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/3/enabled = true
+bones/3/bound_children = [ NodePath("Spine02 Sprite") ]
+bones/4/name = "neck"
+bones/4/parent = 3
+bones/4/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/4/enabled = true
+bones/4/bound_children = [ NodePath("Neck Sprite") ]
+bones/5/name = "head"
+bones/5/parent = 4
+bones/5/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/5/enabled = true
+bones/5/bound_children = [ NodePath("Head Sprite") ]
+bones/6/name = "jaw"
+bones/6/parent = 5
+bones/6/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/6/enabled = true
+bones/6/bound_children = [ NodePath("Jaw Sprite") ]
+bones/7/name = "tongue"
+bones/7/parent = 6
+bones/7/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/7/enabled = true
+bones/7/bound_children = [ NodePath("Tongue Sprite") ]
+bones/8/name = "ear_r"
+bones/8/parent = 5
+bones/8/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/8/enabled = true
+bones/8/bound_children = [ NodePath("Ear R Sprite") ]
+bones/9/name = "ear_l"
+bones/9/parent = 5
+bones/9/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/9/enabled = true
+bones/9/bound_children = [ NodePath("Ear L Sprite") ]
+bones/10/name = "front_thigh_r"
+bones/10/parent = 3
+bones/10/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/10/enabled = true
+bones/10/bound_children = [ NodePath("Front Thigh R Sprite") ]
+bones/11/name = "front_leg_r"
+bones/11/parent = 10
+bones/11/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/11/enabled = true
+bones/11/bound_children = [ NodePath("Front Leg R Sprite") ]
+bones/12/name = "front_foot_r"
+bones/12/parent = 11
+bones/12/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/12/enabled = true
+bones/12/bound_children = [ NodePath("Front Foot R Sprite") ]
+bones/13/name = "front_toe_r"
+bones/13/parent = 12
+bones/13/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/13/enabled = true
+bones/13/bound_children = [ NodePath("Front Toe R Sprite") ]
+bones/14/name = "front_thigh_l"
+bones/14/parent = 3
+bones/14/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/14/enabled = true
+bones/14/bound_children = [ NodePath("Front Thigh L Sprite") ]
+bones/15/name = "front_leg_l"
+bones/15/parent = 14
+bones/15/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/15/enabled = true
+bones/15/bound_children = [ NodePath("Front Leg L Sprite") ]
+bones/16/name = "front_foot_l"
+bones/16/parent = 15
+bones/16/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/16/enabled = true
+bones/16/bound_children = [ NodePath("Front Foot L Sprite") ]
+bones/17/name = "front_toe_l"
+bones/17/parent = 16
+bones/17/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/17/enabled = true
+bones/17/bound_children = [ NodePath("Front Toe L Sprite") ]
+bones/18/name = "hind_thigh_r"
+bones/18/parent = 1
+bones/18/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/18/enabled = true
+bones/18/bound_children = [ NodePath("Hind Thigh R Sprite") ]
+bones/19/name = "hind_leg_r"
+bones/19/parent = 18
+bones/19/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/19/enabled = true
+bones/19/bound_children = [ NodePath("Hind Leg R Sprite") ]
+bones/20/name = "hind_foot_r"
+bones/20/parent = 19
+bones/20/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/20/enabled = true
+bones/20/bound_children = [ NodePath("Hind Foot R Sprite") ]
+bones/21/name = "hind_toe_r"
+bones/21/parent = 20
+bones/21/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/21/enabled = true
+bones/21/bound_children = [ NodePath("Hind Toe R Sprite") ]
+bones/22/name = "hind_thigh_l"
+bones/22/parent = 1
+bones/22/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/22/enabled = true
+bones/22/bound_children = [ NodePath("Hind Thigh L Sprite") ]
+bones/23/name = "hind_leg_l"
+bones/23/parent = 22
+bones/23/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/23/enabled = true
+bones/23/bound_children = [ NodePath("Hind Leg L Sprite") ]
+bones/24/name = "hind_foot_l"
+bones/24/parent = 23
+bones/24/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/24/enabled = true
+bones/24/bound_children = [ NodePath("Hind Foot L Sprite") ]
+bones/25/name = "hind_toe_l"
+bones/25/parent = 24
+bones/25/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/25/enabled = true
+bones/25/bound_children = [ NodePath("Hind Toe L Sprite") ]
+bones/26/name = "tail01"
+bones/26/parent = 1
+bones/26/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/26/enabled = true
+bones/26/bound_children = [ NodePath("Tail 01 Sprite") ]
+bones/27/name = "tail02"
+bones/27/parent = 26
+bones/27/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/27/enabled = true
+bones/27/bound_children = [ NodePath("Tail 02 Sprite") ]
+bones/28/name = "tail03"
+bones/28/parent = 27
+bones/28/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/28/enabled = true
+bones/28/bound_children = [ NodePath("Tail 03 Sprite") ]
+_sections_unfolded = [ "bones" ]
+
+[node name="Tail 03 Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="0"]
+
+editor/display_folded = true
+transform = Transform( 1, -4.11386e-008, -3.60769e-008, 5.13874e-008, 0.932589, 0.36094, 1.87954e-008, -0.360941, 0.932588, 0.0601714, -3.6119, 2.8865 )
+bone_name = "tail03"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Tail 03 Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Hip Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="1"]
+
+editor/display_folded = true
+transform = Transform( 1, -6.3573e-008, 2.77887e-015, 0, -4.37114e-008, -1, 6.3573e-008, 1, -4.37114e-008, 3.62622e-007, -1.4671, 3.84611 )
+bone_name = "hips"
+
+[node name="MeshInstance" type="MeshInstance" parent="Armature/Skeleton7/Hip Sprite" index="0"]
+
+transform = Transform( -7.35825e-009, 1, -1.25514e-011, -0.427896, -5.5057e-008, -0.000197526, 0.000197526, -3.91722e-012, 1, 1.14096e-007, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+
+[node name="Spine01 Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="2"]
+
+editor/display_folded = true
+transform = Transform( 1, -2.14571e-007, 2.89068e-010, 2.88969e-009, 0.0121202, -0.999926, 2.14551e-007, 0.999927, 0.0121202, 3.62622e-007, -0.467103, 3.84611 )
+bone_name = "spine01"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Spine01 Sprite" index="0"]
+
+transform = Transform( -7.19618e-008, 1, -2.93207e-009, -0.427867, -2.06055e-007, -0.0123178, -0.0049887, 3.88364e-010, 0.999924, 0, 0.0126099, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Spine02 Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="3"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.07566e-006, 1.85653e-009, 2.41264e-007, 0.0778411, -0.996966, 3.06619e-006, 0.996966, 0.0778411, 3.62237e-007, 0.86272, 3.82999 )
+bone_name = "spine02"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Spine02 Sprite" index="0"]
+
+transform = Transform( -7.19618e-008, 1, -2.93207e-009, -0.427867, -2.06055e-007, -0.0123178, -0.0049887, 3.88364e-010, 0.999924, 0, 0.0126099, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Neck Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="4"]
+
+editor/display_folded = true
+transform = Transform( -1, -8.01412e-008, 9.27531e-010, -4.93249e-008, 0.606272, -0.795258, 6.31708e-008, -0.795258, -0.606272, 3.59737e-007, 2.20463, 3.72522 )
+bone_name = "neck"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Neck Sprite" index="0"]
+
+transform = Transform( -1.87039e-008, -1, 0, 0.427896, -4.37114e-008, 0, 0, 0, 1, 0, 0.0126099, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Head Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="5"]
+
+editor/display_folded = true
+transform = Transform( 1, 1.28631e-008, -7.09382e-008, -6.72674e-008, 0.52048, -0.853874, 2.59382e-008, 0.853874, 0.52048, 3.58312e-007, 3.42699, 4.65709 )
+bone_name = "head"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Head Sprite" index="0"]
+
+transform = Transform( -1.87039e-008, 1, 0, -0.427896, -4.37114e-008, 0, 0, 0, 1, 0, 0.0126099, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Jaw Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="6"]
+
+editor/display_folded = true
+transform = Transform( -1, 1.41742e-007, 1.284e-008, -1.1676e-007, -0.76546, -0.643484, -8.13802e-008, -0.643485, 0.765459, 3.09748e-007, 3.53995, 4.26202 )
+bone_name = "jaw"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Jaw Sprite" index="0"]
+
+transform = Transform( -1.87039e-008, -1, 0, 0.427896, -4.37114e-008, 0, 0, 0, 1, 0, 0.0126099, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tongue Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="7"]
+
+editor/display_folded = true
+transform = Transform( -1, 7.35073e-008, 2.51842e-007, 1.21108e-007, -0.7222, 0.691685, 2.32724e-007, 0.691685, 0.7222, 0.0601712, 3.8732, 3.97098 )
+bone_name = "tongue"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Tongue Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, -1, 0, 0.3, -4.37114e-008, 0, -1.49012e-008, 3.90799e-014, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Ear R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="8"]
+
+editor/display_folded = true
+transform = Transform( -1, -1.92372e-007, -2.56453e-007, -3.20806e-009, 0.805918, -0.592028, 3.2057e-007, -0.592027, -0.805918, 4.67221e-007, 3.61796, 5.06446 )
+bone_name = "ear_r"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Ear R Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, -1, 0, 0.3, -4.37114e-008, 0, -1.49012e-008, 3.90799e-014, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Ear L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="9"]
+
+editor/display_folded = true
+transform = Transform( -1, -1.92361e-007, -2.56452e-007, -3.20061e-009, 0.805918, -0.592027, 3.20563e-007, -0.592027, -0.805919, 4.86021e-007, 3.77668, 4.99932 )
+bone_name = "ear_l"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Ear L Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, -1, 0, 0.3, -4.37114e-008, 0, -1.49012e-008, 3.90799e-014, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Front Thigh R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="10"]
+
+editor/display_folded = true
+transform = Transform( 1, -6.49621e-008, 9.85467e-008, -4.11631e-008, 0.590554, 0.806998, -1.10622e-007, -0.806998, 0.590555, 3.41237e-007, 2.68821, 2.94949 )
+bone_name = "front_thigh_r"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Thigh R Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Front Leg R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="11"]
+
+editor/display_folded = true
+transform = Transform( 1, 5.15921e-008, 1.10533e-007, -4.10338e-008, 0.995622, -0.0934762, -1.14872e-007, 0.0934763, 0.995621, 2.10594e-007, 1.61837, 2.16659 )
+bone_name = "front_leg_r"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Leg R Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Front Foot R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="12"]
+
+editor/display_folded = true
+transform = Transform( 1, 1.02346e-007, 6.81442e-008, -4.02698e-008, 0.796262, -0.604952, -1.16176e-007, 0.604952, 0.796262, 2.57435e-008, 1.7747, 0.50156 )
+bone_name = "front_foot_r"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Foot R Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, -1.77636e-015, -0.3, -4.37114e-008, -1.49012e-008, 0, 0, 0.5, -1.9744e-007, 0.0962751, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Front Toe R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="13"]
+
+editor/display_folded = true
+transform = Transform( 1, 1.05638e-007, -4.03491e-008, -4.03489e-008, -2.38419e-007, -1, -1.05639e-007, 1, -4.47035e-007, -2.70467e-008, 2.24334, -0.11529 )
+bone_name = "front_toe_r"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Toe R Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Front Thigh L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="14"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.40687e-007, -2.05125e-008, 1.18222e-007, 0.742687, 0.669639, -7.89751e-008, -0.669639, 0.742687, 3.4412e-007, 1.84195, 3.07038 )
+bone_name = "front_thigh_l"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Thigh L Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Front Leg L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="15"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.27511e-007, 6.80415e-008, 1.17469e-007, 0.991336, 0.131351, -8.42008e-008, -0.131351, 0.991336, 3.65317e-007, 1.14995, 2.30289 )
+bone_name = "front_leg_l"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Leg L Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Front Foot L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="16"]
+
+editor/display_folded = true
+transform = Transform( 1, -2.21376e-008, 1.44815e-007, 1.1857e-007, 0.702863, -0.711326, -8.60385e-008, 0.711326, 0.702863, 2.51708e-007, 0.930629, 0.64764 )
+bone_name = "front_foot_l"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Foot L Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Front Toe L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="17"]
+
+editor/display_folded = true
+transform = Transform( 1, 7.43705e-008, 1.18578e-007, 1.18577e-007, -1.49012e-007, -1, -7.43707e-008, 1, -2.08616e-007, 1.40025e-007, 1.47921, 0.105591 )
+bone_name = "front_toe_l"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Toe L Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Hind Thigh R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="18"]
+
+editor/display_folded = true
+transform = Transform( 1, 1.24228e-008, 2.46179e-008, -1.27546e-009, 0.912652, -0.408736, -2.75453e-008, 0.408736, 0.912653, 3.50849e-007, -1.9809, 3.35246 )
+bone_name = "hind_thigh_r"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Thigh R Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Hind Leg R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="19"]
+
+editor/display_folded = true
+transform = Transform( 1, -2.25624e-008, 2.26948e-008, -2.52419e-009, 0.651352, 0.758776, -3.19021e-008, -0.758776, 0.651352, 3.12541e-007, -1.34486, 1.93228 )
+bone_name = "hind_leg_r"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Leg R Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Hind Foot R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="20"]
+
+editor/display_folded = true
+transform = Transform( 1, 1.5111e-009, 3.42466e-008, -2.86468e-009, 0.999218, 0.0395586, -3.416e-008, -0.0395589, 0.999217, 2.74572e-007, -2.61431, 0.842558 )
+bone_name = "hind_foot_r"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Foot R Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Hind Toe R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="21"]
+
+editor/display_folded = true
+transform = Transform( 1, 3.42757e-008, 3.01124e-009, 2.98266e-009, 0.000833496, -1, -3.42782e-008, 1, 0.00083372, 2.41386e-007, -2.65264, -0.125715 )
+bone_name = "hind_toe_r"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Toe R Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Hind Thigh L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="22"]
+
+editor/display_folded = true
+transform = Transform( 1, 2.05997e-008, 1.90504e-008, 2.99412e-010, 0.671085, -0.74138, -2.80566e-008, 0.74138, 0.671085, 3.55517e-007, -1.76065, 3.54819 )
+bone_name = "hind_thigh_l"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Thigh L Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Hind Leg L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="23"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.49362e-008, 2.85171e-008, 5.22187e-010, 0.893258, 0.449544, -3.21876e-008, -0.449544, 0.893258, 3.26375e-007, -0.626559, 2.52163 )
+bone_name = "hind_leg_l"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Leg L Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Hind Foot L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="24"]
+
+editor/display_folded = true
+transform = Transform( 1, 2.46681e-007, 3.32342e-008, -2.28792e-007, 0.963533, -0.267592, -9.80321e-008, 0.267592, 0.963532, 2.81135e-007, -1.33973, 1.10455 )
+bone_name = "hind_foot_l"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Foot L Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Hind Toe L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="25"]
+
+editor/display_folded = true
+transform = Transform( 1, 2.41586e-008, -4.02878e-012, 1.26232e-012, -0.000211835, -1, -2.41585e-008, 1, -0.000212282, 2.47432e-007, -1.06836, 0.127409 )
+bone_name = "hind_toe_l"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Toe L Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Tail 01 Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="26"]
+
+editor/display_folded = true
+transform = Transform( -1, 5.09999e-007, -8.97758e-008, -1.09095e-007, -0.038008, 0.999276, 5.06219e-007, 0.999277, 0.038008, 0.0601713, -1.70557, 4.03215 )
+bone_name = "tail01"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Tail 01 Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Tail 02 Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="27"]
+
+editor/display_folded = true
+transform = Transform( 1, 1.27226e-007, -3.53585e-008, -6.66854e-008, 0.717684, 0.696368, 1.13972e-007, -0.696369, 0.717684, 0.0601713, -2.53073, 4.00077 )
+bone_name = "tail02"
+
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Tail 02 Sprite" index="0"]
+
+transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -0.089143, 0.0264053, -0.862963 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Idle = ExtResource( 3 )
+anims/Walk = ExtResource( 4 )
+blend_times = [  ]
+
+[node name="AnimationTreePlayer" type="AnimationTreePlayer" parent="." index="2"]
+
+playback_process_mode = 1
+master_player = NodePath("")
+base_path = NodePath("..")
+active = true
+data = {
+"active": true,
+"connections": [ "blend2", "out", 0, "anim", "blend2", 0, "anim 2", "blend2", 1 ],
+"master": NodePath(""),
+"nodes": [ {
+"animation": ExtResource( 3 ),
+"filter": [  ],
+"id": "anim",
+"position": Vector2( 60, 60 ),
+"type": "animation"
+}, {
+"id": "out",
+"position": Vector2( 477, 74 ),
+"type": "output"
+}, {
+"animation": ExtResource( 4 ),
+"filter": [  ],
+"id": "anim 2",
+"position": Vector2( 65, 172 ),
+"type": "animation"
+}, {
+"blend": 0.0,
+"filter": [  ],
+"id": "blend2",
+"position": Vector2( 260, 69 ),
+"type": "blend2"
+} ]
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="." index="3"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.40625, 0 )
+shape = SubResource( 1 )
+disabled = false
+
+
