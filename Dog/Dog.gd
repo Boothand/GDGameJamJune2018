@@ -1,14 +1,21 @@
 extends KinematicBody
 
-export var move_speed = 150.0
+export var move_speed = 1.0
 export var movement_responsiveness = 5.0
-export var jump_force = 500.0
-export var turnaround_threshold = 1.0
+export var jump_force = 4.0
+export var turnaround_threshold = 0.1
+export var turnaround_speed = 5.0
 
 var velocity = Vector3()
 var x_input = 0.0
 var moving = false
 var on_ground = false
+var target_rot = 0.0
+var crouching = false
+
+signal on_jump
+signal on_crouch_begin
+signal on_crouch_end
 
 
 #---------------------------------------------------
@@ -27,23 +34,30 @@ func input_move(x_direction):
 #---------------------------------------------------
 
 func input_jump():
-	if on_ground:
-		velocity.y -= jump_force
+	if is_on_floor():
+		velocity.y += jump_force
+		emit_signal("on_jump")
 
 #---------------------------------------------------
+
+func input_crouch(crouch):
+	if !crouching and crouch:
+		emit_signal("on_crouch_begin")
+	if crouching and !crouch:
+		emit_signal("on_crouch_end")
+		
+	crouching = crouch
 
 func _physics_process(delta):
 	velocity *= 0.99
 #	move_and_slide(velocity, Vector2(-1.0, 0.0))
 	move_and_slide(velocity, Vector3(0.0, 1.0, 0.0))
-	
-	pass
 
 #---------------------------------------------------
 
 func _process(delta):
 	# Falling:
-	velocity += Vector3(0.0, -981 * delta, 0.0)
+	velocity += Vector3(0.0, -9.81 * delta, 0.0)
 	
 	# Moving sideways
 	velocity.x = lerp(velocity.x, x_input * move_speed, delta * movement_responsiveness)
@@ -51,17 +65,15 @@ func _process(delta):
 	moving = abs(x_input) > 0.0
 	
 	# Check for collisions:
-	var collision_info = get_slide_collision(0)
-	on_ground = false
-	if collision_info:
-		# Prevent velocity.y from decreasing to the abyss and beyond
-		velocity.y = 0.0
-		on_ground = true
+	if is_on_floor():
+		velocity.y = -0.1
 	
 	# Turning around
 	if velocity.x > turnaround_threshold:
-		$Dog_Root.scale.x = 1.0
+		target_rot = 0.0
 	elif velocity.x < -turnaround_threshold:
-		$Dog_Root.scale.x = -1.0
+		target_rot = 180.0
+		
+	$Spatial.rotation_degrees.y = lerp($Spatial.rotation_degrees.y, target_rot, delta * turnaround_speed)
 	
 	

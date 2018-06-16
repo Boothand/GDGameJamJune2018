@@ -19,4 +19,5 @@ func _process(delta):
 		
 		if Input.is_action_just_pressed("ui_up"):
 			dog.input_jump()
-	pass
+		
+		dog.input_crouch(Input.is_action_pressed("ui_down"))

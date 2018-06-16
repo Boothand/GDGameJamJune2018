@@ -1,23 +1,20 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Dog/Dog.gd" type="Script" id=1]
 [ext_resource path="res://Dog/SpriteShader.tres" type="Material" id=2]
-[ext_resource path="res://Dog/Crouch.anim" type="Animation" id=3]
-[ext_resource path="res://Dog/CrouchWalk.anim" type="Animation" id=4]
-[ext_resource path="res://Dog/Idle.anim" type="Animation" id=5]
-[ext_resource path="res://Dog/Jump.anim" type="Animation" id=6]
-[ext_resource path="res://Dog/Walk.anim" type="Animation" id=7]
-[ext_resource path="res://Dog/DogAnimator.gd" type="Script" id=8]
-[ext_resource path="res://Dog/Player_Input.gd" type="Script" id=9]
+[ext_resource path="res://Dog/Idle.anim" type="Animation" id=3]
+[ext_resource path="res://Dog/Walk.anim" type="Animation" id=4]
+[ext_resource path="res://Dog/DogAnimator.gd" type="Script" id=5]
+[ext_resource path="res://Dog/Player_Input.gd" type="Script" id=6]
 
-[sub_resource type="PlaneMesh" id=1]
+[sub_resource type="PlaneMesh" id=2]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector2( 2, 2 )
 subdivide_width = 0
 subdivide_depth = 0
 
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="CapsuleShape" id=1]
 
 radius = 2.30849
 height = 4.1032
@@ -38,19 +35,16 @@ axis_lock_angular_z = false
 collision/safe_margin = 0.001
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
-move_speed = 1.0
+move_speed = 150.0
 movement_responsiveness = 5.0
-jump_force = 4.0
-turnaround_threshold = 0.1
-turnaround_speed = 5.0
+jump_force = 500.0
+turnaround_threshold = 1.0
 
-[node name="Spatial" type="Spatial" parent="." index="0"]
-
-[node name="Armature" type="Spatial" parent="Spatial" index="0"]
+[node name="Armature" type="Spatial" parent="." index="0"]
 
 transform = Transform( 1, -7.10543e-015, 3.01876e-011, -3.01876e-011, -0.000345306, 1, 7.10543e-015, -1, -0.000345306, -7.5417e-016, 0.146122, 0.439859 )
 
-[node name="Skeleton7" type="Skeleton" parent="Spatial/Armature" index="0"]
+[node name="Skeleton7" type="Skeleton" parent="Armature" index="0"]
 
 editor/display_folded = true
 bones/0/name = "RootBone"
@@ -200,13 +194,13 @@ bones/28/enabled = true
 bones/28/bound_children = [ NodePath("Tail 03 Sprite") ]
 _sections_unfolded = [ "bones" ]
 
-[node name="Tail 03 Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="0"]
+[node name="Tail 03 Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="0"]
 
 editor/display_folded = true
-transform = Transform( 1, -1.23184e-007, 9.54777e-009, 1.16071e-007, 0.96311, 0.269105, -4.2346e-008, -0.269106, 0.963109, 0.0601714, -3.51232, 2.63051 )
+transform = Transform( 1, -4.69931e-008, -3.28484e-008, 5.59846e-008, 0.92395, 0.382513, 1.23739e-008, -0.382514, 0.923949, 0.0601714, -3.61945, 2.92283 )
 bone_name = "tail03"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Tail 03 Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Tail 03 Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -218,18 +212,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Hip Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="1"]
+[node name="Hip Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="1"]
 
 editor/display_folded = true
-transform = Transform( 1, -6.3573e-008, 2.77887e-015, 0, -4.37114e-008, -1, 6.3573e-008, 1, -4.37114e-008, 3.62622e-007, -1.49539, 3.68801 )
+transform = Transform( 1, -6.3573e-008, 2.77887e-015, 0, -4.37114e-008, -1, 6.3573e-008, 1, -4.37114e-008, 3.62622e-007, -1.46547, 3.85521 )
 bone_name = "hips"
 
-[node name="MeshInstance" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Hip Sprite" index="0"]
+[node name="MeshInstance" type="MeshInstance" parent="Armature/Skeleton7/Hip Sprite" index="0"]
 
 transform = Transform( -7.35825e-009, 1, -1.25514e-011, -0.427896, -5.5057e-008, -0.000197526, 0.000197526, -3.91722e-012, 1, 1.14096e-007, 0, 0 )
 layers = 1
@@ -241,17 +235,17 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 
-[node name="Spine01 Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="2"]
+[node name="Spine01 Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="2"]
 
 editor/display_folded = true
-transform = Transform( 1, -2.14571e-007, 2.89068e-010, 2.88969e-009, 0.0121202, -0.999926, 2.14551e-007, 0.999927, 0.0121202, 3.62622e-007, -0.495395, 3.68801 )
+transform = Transform( 1, -2.14571e-007, 2.89068e-010, 2.88969e-009, 0.0121202, -0.999926, 2.14551e-007, 0.999927, 0.0121202, 3.62622e-007, -0.465474, 3.85521 )
 bone_name = "spine01"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Spine01 Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Spine01 Sprite" index="0"]
 
 transform = Transform( -7.19618e-008, 1, -2.93207e-009, -0.427867, -2.06055e-007, -0.0123178, -0.0049887, 3.88364e-010, 0.999924, 0, 0.0126099, 0 )
 layers = 1
@@ -263,18 +257,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Spine02 Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="3"]
+[node name="Spine02 Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="3"]
 
 editor/display_folded = true
-transform = Transform( 1, -3.07566e-006, 1.85653e-009, 2.41264e-007, 0.0778411, -0.996966, 3.06619e-006, 0.996966, 0.0778411, 3.62237e-007, 0.834428, 3.67189 )
+transform = Transform( 1, -3.07566e-006, 1.85653e-009, 2.41264e-007, 0.0778411, -0.996966, 3.06619e-006, 0.996966, 0.0778411, 3.62237e-007, 0.864349, 3.83909 )
 bone_name = "spine02"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Spine02 Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Spine02 Sprite" index="0"]
 
 transform = Transform( -7.19618e-008, 1, -2.93207e-009, -0.427867, -2.06055e-007, -0.0123178, -0.0049887, 3.88364e-010, 0.999924, 0, 0.0126099, 0 )
 layers = 1
@@ -286,18 +280,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Neck Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="4"]
+[node name="Neck Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="4"]
 
 editor/display_folded = true
-transform = Transform( -1, -9.38388e-008, 1.21905e-008, -6.14842e-008, 0.546409, -0.837519, 7.19311e-008, -0.837519, -0.546409, 3.59738e-007, 2.17634, 3.56711 )
+transform = Transform( -1, -5.81328e-008, 3.20324e-010, -3.57646e-008, 0.610855, -0.791743, 4.58312e-008, -0.791743, -0.610855, 3.59737e-007, 2.20626, 3.73432 )
 bone_name = "neck"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Neck Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Neck Sprite" index="0"]
 
 transform = Transform( -1.87039e-008, -1, 0, 0.427896, -4.37114e-008, 0, 0, 0, 1, 0, 0.0126099, 0 )
 layers = 1
@@ -309,18 +303,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Head Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="5"]
+[node name="Head Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="5"]
 
 editor/display_folded = true
-transform = Transform( 1, -7.78507e-008, -5.54746e-008, -9.89025e-009, 0.492944, -0.870061, 9.50803e-008, 0.870061, 0.492944, 3.41001e-007, 3.46365, 4.40697 )
+transform = Transform( 1, -2.50149e-008, -9.09048e-008, -6.68746e-008, 0.491465, -0.870898, 6.64613e-008, 0.870898, 0.491464, 3.59245e-007, 3.42321, 4.67324 )
 bone_name = "head"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Head Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Head Sprite" index="0"]
 
 transform = Transform( -1.87039e-008, 1, 0, -0.427896, -4.37114e-008, 0, 0, 0, 1, 0, 0.0126099, 0 )
 layers = 1
@@ -332,18 +326,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Jaw Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="6"]
+[node name="Jaw Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="6"]
 
 editor/display_folded = true
-transform = Transform( -1, 2.32654e-007, -1.41187e-009, -1.72273e-007, -0.744518, -0.667603, -1.56371e-007, -0.667603, 0.744518, 3.13033e-007, 3.58918, 4.01571 )
+transform = Transform( -1, 1.71282e-007, -1.81568e-008, -1.15184e-007, -0.743382, -0.668867, -1.28062e-007, -0.668868, 0.743382, 3.27263e-007, 3.5494, 4.28219 )
 bone_name = "jaw"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Jaw Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Jaw Sprite" index="0"]
 
 transform = Transform( -1.87039e-008, -1, 0, 0.427896, -4.37114e-008, 0, 0, 0, 1, 0, 0.0126099, 0 )
 layers = 1
@@ -355,18 +349,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tongue Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="7"]
+[node name="Tongue Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="7"]
 
 editor/display_folded = true
-transform = Transform( -1, 6.91322e-008, 1.59923e-007, 5.54428e-008, -0.743922, 0.668267, 1.6517e-007, 0.668267, 0.743922, 0.0601712, 3.93155, 3.73546 )
+transform = Transform( -1, 4.58733e-008, 2.19134e-007, 1.11985e-007, -0.745057, 0.667002, 1.93866e-007, 0.667001, 0.745057, 0.0601712, 3.89226, 4.00252 )
 bone_name = "tongue"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Tongue Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Tongue Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, -1, 0, 0.3, -4.37114e-008, 0, -1.49012e-008, 3.90799e-014, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -378,18 +372,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Ear R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="8"]
+[node name="Ear R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="8"]
 
 editor/display_folded = true
-transform = Transform( -1, -1.99972e-007, -1.64745e-007, -7.16159e-008, 0.824414, -0.565987, 2.49e-007, -0.565987, -0.824415, 4.10096e-007, 3.64152, 4.82023 )
+transform = Transform( -1, -1.6922e-007, -2.20434e-007, -1.52161e-008, 0.825375, -0.564585, 2.7748e-007, -0.564584, -0.825376, 4.50236e-007, 3.60038, 5.0868 )
 bone_name = "ear_r"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Ear R Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Ear R Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, -1, 0, 0.3, -4.37114e-008, 0, -1.49012e-008, 3.90799e-014, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -401,18 +395,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Ear L Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="9"]
+[node name="Ear L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="9"]
 
 editor/display_folded = true
-transform = Transform( -1, -1.99961e-007, -1.64744e-007, -7.16081e-008, 0.824415, -0.565987, 2.48994e-007, -0.565986, -0.824415, 4.23829e-007, 3.80223, 4.7602 )
+transform = Transform( -1, -1.69209e-007, -2.20433e-007, -1.52085e-008, 0.825376, -0.564584, 2.77473e-007, -0.564584, -0.825376, 4.71397e-007, 3.76119, 5.02704 )
 bone_name = "ear_l"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Ear L Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Ear L Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, -1, 0, 0.3, -4.37114e-008, 0, -1.49012e-008, 3.90799e-014, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -424,18 +418,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Front Thigh R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="10"]
+[node name="Front Thigh R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="10"]
 
 editor/display_folded = true
-transform = Transform( 1, 1.09079e-007, 9.32151e-008, -1.35979e-007, 0.513123, 0.858315, 4.57935e-008, -0.858315, 0.513123, 0.301608, 2.65991, 2.79138 )
+transform = Transform( 1, -6.44879e-008, 7.6054e-008, -2.27647e-008, 0.594931, 0.803777, -9.7081e-008, -0.803777, 0.594931, 3.41237e-007, 2.68983, 2.95859 )
 bone_name = "front_thigh_r"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Front Thigh R Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Thigh R Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -447,18 +441,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Front Leg R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="11"]
+[node name="Front Leg R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="11"]
 
 editor/display_folded = true
-transform = Transform( 1, 1.2476e-007, -4.73903e-008, -1.29332e-007, 0.993538, -0.113499, 3.29237e-008, 0.113499, 0.993538, 0.301608, 1.52205, 2.11114 )
+transform = Transform( 1, 3.18624e-008, 9.86505e-008, -2.26215e-008, 0.995732, -0.0922952, -1.0117e-007, 0.0922953, 0.995732, 2.40413e-007, 1.62427, 2.16989 )
 bone_name = "front_leg_r"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Front Leg R Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Leg R Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -470,18 +464,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Front Foot R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="12"]
+[node name="Front Foot R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="12"]
 
 editor/display_folded = true
-transform = Transform( 1, 7.20305e-008, -1.06948e-007, -1.25801e-007, 0.726996, -0.686641, 2.82918e-008, 0.686641, 0.726996, 0.301608, 1.71186, 0.449591 )
+transform = Transform( 1, 7.89626e-008, 6.88054e-008, -2.18926e-008, 0.800034, -0.599955, -1.02421e-007, 0.599955, 0.800034, 7.54342e-008, 1.77862, 0.504676 )
 bone_name = "front_foot_r"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Front Foot R Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Foot R Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, -1.77636e-015, -0.3, -4.37114e-008, -1.49012e-008, 0, 0, 0.5, -1.9744e-007, 0.0962751, -0.624834 )
 layers = 1
@@ -493,18 +487,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Front Toe R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="13"]
+[node name="Front Toe R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="13"]
 
 editor/display_folded = true
-transform = Transform( 1, -7.20413e-008, -1.27398e-007, -1.27398e-007, -3.27826e-007, -1, 7.2041e-008, 1, -1.19209e-007, 0.301608, 2.24379, -0.1136 )
+transform = Transform( 1, 9.22486e-008, -2.19632e-008, -2.19632e-008, -2.98023e-007, -1, -9.22488e-008, 1, -6.25849e-007, 2.21318e-008, 2.2434, -0.115096 )
 bone_name = "front_toe_r"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Front Toe R Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Toe R Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -516,18 +510,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Front Thigh L Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="14"]
+[node name="Front Thigh L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="14"]
 
 editor/display_folded = true
-transform = Transform( 1, 3.07865e-008, -4.92123e-008, 1.52574e-008, 0.67857, 0.734536, 5.60075e-008, -0.734535, 0.67857, -0.20834, 1.81366, 2.91228 )
+transform = Transform( 1, -1.40871e-007, -4.75957e-008, 1.36811e-007, 0.746291, 0.665621, -5.82462e-008, -0.66562, 0.746291, 3.44119e-007, 1.84358, 3.07948 )
 bone_name = "front_thigh_l"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Front Thigh L Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Thigh L Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -539,18 +533,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Front Leg L Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="15"]
+[node name="Front Leg L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="15"]
 
 editor/display_folded = true
-transform = Transform( 1, -5.55072e-009, -4.83803e-008, 1.1465e-008, 0.992392, 0.123119, 4.73285e-008, -0.123118, 0.992392, -0.20834, 1.05459, 2.21104 )
+transform = Transform( 1, -1.43258e-007, 4.477e-008, 1.36108e-007, 0.991279, 0.131784, -6.32588e-008, -0.131784, 0.991279, 3.93305e-007, 1.15573, 2.30826 )
 bone_name = "front_leg_l"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Front Leg L Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Leg L Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -562,18 +556,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Front Foot L Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="16"]
+[node name="Front Foot L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="16"]
 
 editor/display_folded = true
-transform = Transform( 1, -4.31067e-008, -1.58791e-008, 1.19756e-008, 0.578327, -0.815805, 4.43496e-008, 0.815805, 0.578327, -0.208339, 0.849018, 0.554031 )
+transform = Transform( 1, -5.15141e-008, 1.42772e-007, 1.37152e-007, 0.709601, -0.704604, -6.50145e-008, 0.704604, 0.709601, 3.18552e-007, 0.935688, 0.653114 )
 bone_name = "front_foot_l"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Front Foot L Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Foot L Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -585,18 +579,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Front Toe L Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="17"]
+[node name="Front Toe L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="17"]
 
 editor/display_folded = true
-transform = Transform( 1, -5.43987e-008, 1.19775e-008, 1.19776e-008, 5.36442e-007, -1, 5.43984e-008, 1, -2.08616e-007, -0.208339, 1.47817, 0.108023 )
+transform = Transform( 1, 5.37671e-008, 1.37173e-007, 1.37173e-007, -1.19209e-007, -1, -5.37672e-008, 1, -2.98023e-007, 2.08445e-007, 1.47908, 0.105868 )
 bone_name = "front_toe_l"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Front Toe L Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Front Toe L Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -608,18 +602,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Hind Thigh R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="18"]
+[node name="Hind Thigh R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="18"]
 
 editor/display_folded = true
-transform = Transform( 1, 1.60341e-008, 2.31849e-008, -2.70196e-009, 0.873207, -0.487349, -2.80595e-008, 0.487349, 0.873208, -0.171848, -2.00919, 3.19436 )
+transform = Transform( 1, 1.22113e-008, 2.46311e-008, -1.21797e-009, 0.914737, -0.40405, -2.74649e-008, 0.404049, 0.914737, 3.50849e-007, -1.97927, 3.36157 )
 bone_name = "hind_thigh_r"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Hind Thigh R Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Thigh R Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -631,18 +625,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Hind Leg R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="19"]
+[node name="Hind Leg R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="19"]
 
 editor/display_folded = true
-transform = Transform( 1, -2.65857e-008, 2.82653e-008, -7.00448e-009, 0.592777, 0.805366, -3.81663e-008, -0.805367, 0.592777, -0.171848, -1.25083, 1.83556 )
+transform = Transform( 1, -2.23165e-008, 2.25483e-008, -2.43372e-009, 0.654693, 0.755895, -3.16311e-008, -0.755896, 0.654693, 3.1252e-007, -1.35053, 1.93814 )
 bone_name = "hind_leg_r"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Hind Leg R Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Leg R Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -654,18 +648,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Hind Foot R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="20"]
+[node name="Hind Foot R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="20"]
 
 editor/display_folded = true
-transform = Transform( 1, 5.33321e-009, 4.4367e-008, -7.80411e-009, 0.998438, 0.0558798, -4.39996e-008, -0.0558802, 0.998437, -0.171849, -2.59822, 0.843831 )
+transform = Transform( 1, 1.44382e-009, 3.38602e-008, -2.75161e-009, 0.999253, 0.0386545, -3.37791e-008, -0.0386547, 0.999253, 2.74796e-007, -2.61516, 0.842826 )
 bone_name = "hind_foot_r"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Hind Foot R Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Foot R Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -677,18 +671,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Hind Toe R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="21"]
+[node name="Hind Toe R Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="21"]
 
 editor/display_folded = true
-transform = Transform( 1, 4.42356e-008, 6.33821e-010, 6.33931e-010, -2.78279e-006, -1, -4.42356e-008, 1, -2.42144e-006, -0.171849, -2.65237, -0.123686 )
+transform = Transform( 1, 3.38899e-008, 3.00534e-009, 2.98225e-009, 0.000680845, -1, -3.38919e-008, 1, 0.000681087, 2.41985e-007, -2.65261, -0.125481 )
 bone_name = "hind_toe_r"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Hind Toe R Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Toe R Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -700,18 +694,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Hind Thigh L Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="22"]
+[node name="Hind Thigh L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="22"]
 
 editor/display_folded = true
-transform = Transform( 1, 2.17278e-008, 1.19206e-008, -3.23524e-009, 0.591331, -0.806429, -2.4571e-008, 0.806429, 0.591331, 0.206964, -1.78894, 3.39009 )
+transform = Transform( 1, 2.03927e-008, 1.91137e-008, 3.17929e-010, 0.675513, -0.737348, -2.79481e-008, 0.737348, 0.675513, 3.55517e-007, -1.75902, 3.5573 )
 bone_name = "hind_thigh_l"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Hind Thigh L Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Thigh L Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -723,18 +717,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Hind Leg L Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="23"]
+[node name="Hind Leg L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="23"]
 
 editor/display_folded = true
-transform = Transform( 1, -1.888e-008, 3.01494e-008, 1.50422e-009, 0.86922, 0.494426, -3.55412e-008, -0.494426, 0.86922, 0.206964, -0.555346, 2.48553 )
+transform = Transform( 1, -1.47093e-008, 2.83201e-008, 5.04945e-010, 0.894619, 0.44683, -3.19082e-008, -0.44683, 0.894619, 3.26278e-007, -0.631099, 2.52396 )
 bone_name = "hind_leg_l"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Hind Leg L Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Leg L Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -746,18 +740,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Hind Foot L Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="24"]
+[node name="Hind Foot L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="24"]
 
 editor/display_folded = true
-transform = Transform( 1, 2.47743e-007, 3.83949e-008, -2.28561e-007, 0.963859, -0.266414, -1.03009e-007, 0.266413, 0.963859, 0.206964, -1.33972, 1.10658 )
+transform = Transform( 1, 2.46615e-007, 3.28579e-008, -2.2882e-007, 0.963507, -0.267684, -9.76737e-008, 0.267684, 0.963507, 2.81351e-007, -1.33996, 1.10472 )
 bone_name = "hind_foot_l"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Hind Foot L Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Foot L Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -769,18 +763,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Hind Toe L Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="25"]
+[node name="Hind Toe L Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="25"]
 
 editor/display_folded = true
-transform = Transform( 1, 3.06313e-008, -4.02752e-009, -4.0294e-009, 6.51181e-005, -1, -3.0631e-008, 1, 6.50585e-005, 0.206964, -1.06954, 0.12911 )
+transform = Transform( 1, 2.41022e-008, -5.29443e-012, -9.28813e-013, -0.000172853, -1, -2.41021e-008, 1, -0.000173151, 2.48029e-007, -1.0685, 0.127604 )
 bone_name = "hind_toe_l"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Hind Toe L Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Hind Toe L Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -792,18 +786,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Tail 01 Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="26"]
+[node name="Tail 01 Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="26"]
 
 editor/display_folded = true
-transform = Transform( -1, 5.12322e-007, -8.87703e-008, -9.97735e-008, -0.0215169, 0.999767, 5.10294e-007, 0.999768, 0.0215168, 0.0601713, -1.73386, 3.87405 )
+transform = Transform( -1, 5.07805e-007, -8.83858e-008, -9.61509e-008, -0.0153116, 0.999881, 5.06393e-007, 0.999882, 0.0153116, 0.0601713, -1.70394, 4.04125 )
 bone_name = "tail01"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Tail 01 Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Tail 01 Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -1.9744e-007, 0.0962752, -0.624834 )
 layers = 1
@@ -815,18 +809,18 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="Tail 02 Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="27"]
+[node name="Tail 02 Sprite" type="BoneAttachment" parent="Armature/Skeleton7" index="27"]
 
 editor/display_folded = true
-transform = Transform( 1, 3.42579e-008, -1.58827e-008, -1.72984e-008, 0.789502, 0.613746, 3.35643e-008, -0.613747, 0.789502, 0.0601713, -2.55942, 3.85628 )
+transform = Transform( 1, 1.19849e-007, -3.45269e-008, -6.11217e-008, 0.712217, 0.701958, 1.08719e-007, -0.701959, 0.712217, 0.0601713, -2.5296, 4.02861 )
 bone_name = "tail02"
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Tail 02 Sprite" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="Armature/Skeleton7/Tail 02 Sprite" index="0"]
 
 transform = Transform( -1.31134e-008, 1, 0, -0.3, -4.37114e-008, 0, 0, 0, 0.5, -0.089143, 0.0264053, -0.862963 )
 layers = 1
@@ -838,7 +832,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
@@ -850,11 +844,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Crouch = ExtResource( 3 )
-anims/CrouchWalk = ExtResource( 4 )
-anims/Idle = ExtResource( 5 )
-anims/Jump = ExtResource( 6 )
-anims/Walk = ExtResource( 7 )
+anims/Idle = ExtResource( 3 )
+anims/Walk = ExtResource( 4 )
 blend_times = [  ]
 
 [node name="AnimationTreePlayer" type="AnimationTreePlayer" parent="." index="2"]
@@ -865,20 +856,20 @@ base_path = NodePath("..")
 active = true
 data = {
 "active": true,
-"connections": [ "crouch_blend", "out", 0, "anim", "idle_walk_blend", 0, "anim 2", "idle_walk_blend", 1, "idle_walk_blend", "oneshot_jump", 0, "anim 3", "oneshot_jump", 1, "oneshot_jump", "crouch_blend", 0, "crouchwalk_blend", "crouch_blend", 1, "anim 4", "crouchwalk_blend", 0, "anim 5", "crouchwalk_blend", 1 ],
+"connections": [ "idle_walk_blend", "out", 0, "anim", "idle_walk_blend", 0, "anim 2", "idle_walk_blend", 1 ],
 "master": NodePath(""),
 "nodes": [ {
-"animation": ExtResource( 5 ),
+"animation": ExtResource( 3 ),
 "filter": [  ],
 "id": "anim",
 "position": Vector2( 60, 60 ),
 "type": "animation"
 }, {
 "id": "out",
-"position": Vector2( 1094, 76 ),
+"position": Vector2( 477, 74 ),
 "type": "output"
 }, {
-"animation": ExtResource( 7 ),
+"animation": ExtResource( 4 ),
 "filter": [  ],
 "id": "anim 2",
 "position": Vector2( 65, 172 ),
@@ -889,60 +880,19 @@ data = {
 "id": "idle_walk_blend",
 "position": Vector2( 271, 61 ),
 "type": "blend2"
-}, {
-"animation": ExtResource( 6 ),
-"filter": [  ],
-"id": "anim 3",
-"position": Vector2( 362, 224 ),
-"type": "animation"
-}, {
-"animation": ExtResource( 4 ),
-"filter": [  ],
-"id": "anim 5",
-"position": Vector2( 596, 347 ),
-"type": "animation"
-}, {
-"autorestart": false,
-"autorestart_delay": 1.0,
-"autorestart_random_delay": 0.807843,
-"fade_in": 0.1,
-"fade_out": 0.25,
-"filter": [  ],
-"id": "oneshot_jump",
-"mix": false,
-"position": Vector2( 453, 61 ),
-"type": "oneshot"
-}, {
-"blend": 0.0,
-"filter": [  ],
-"id": "crouch_blend",
-"position": Vector2( 815, 43 ),
-"type": "blend2"
-}, {
-"animation": ExtResource( 3 ),
-"filter": [  ],
-"id": "anim 4",
-"position": Vector2( 585, 218 ),
-"type": "animation"
-}, {
-"blend": 0.0,
-"filter": [  ],
-"id": "crouchwalk_blend",
-"position": Vector2( 804, 197 ),
-"type": "blend2"
 } ]
 }
-script = ExtResource( 8 )
+script = ExtResource( 5 )
 movement_blend_speed = 2.0
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="3"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.40625, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 disabled = false
 
 [node name="Player Input" type="Node" parent="." index="4"]
 
-script = ExtResource( 9 )
+script = ExtResource( 6 )
 
 
