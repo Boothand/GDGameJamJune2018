@@ -13,6 +13,8 @@ var gamestate = GAMEPLAY
 
 signal on_overheat
 
+signal on_display_remark
+
 
 #---------------------------------------------------
 func _ready():
@@ -34,6 +36,9 @@ func add_heat(amount):
 	temperature += amount
 	
 #---------------------------------------------------
+
+func display_remark(remark):
+	emit_signal("on_display_remark", remark)
 
 func _process(delta):
 	if game_started and !overheated:

@@ -1,6 +1,6 @@
 extends "res://Environment/InteractionObjects/InteractionObject.gd"
 
-export var cooling_amount = 1.8
+export var cooling_amount = 2.0
 export var heat_event_amount = 20.0
 
 var dog_cooling_timer = 0.0
@@ -23,9 +23,10 @@ func event_dog_entered(in_dog):
 		start_roulette_event_routine()
 			
 #---------------------------------------------------
-		
-func _handle_body_exited(other_obj):
+
+func event_dog_exited(in_dog):
 	pass
+
 
 #---------------------------------------------------
 		
@@ -39,6 +40,9 @@ func start_roulette_event_routine():
 	
 	while true:
 		
+		if !dog:
+			return
+			
 		randomize()
 		var randnum = rand_range(0.0, 100.0)
 		
@@ -51,10 +55,11 @@ func start_roulette_event_routine():
 
 func initiate_bad_event():
 	.initiate_bad_event()
-	GameManager.add_heat(heat_event_amount)
-	
-	$Particles1.emitting = true
-	$Particles2.emitting = true
+	if dog:
+		GameManager.add_heat(heat_event_amount)
+		GameManager.display_remark("Way to go, dog. Not gonna help cooling down.")
+		$Particles1.emitting = true
+		$Particles2.emitting = true
 
 #---------------------------------------------------
 

@@ -1,6 +1,6 @@
 extends "res://Environment/InteractionObjects/InteractionObject.gd"
 
-export var cooling_amount = 1.8
+export var cooling_amount = 2.0
 export var heat_event_amount = 20.0
 
 var dog_cooling_timer = 0.0
@@ -24,11 +24,6 @@ func _ready():
 func event_dog_entered(in_dog):
 	if !event_has_happened:
 		start_roulette_event_routine()
-			
-#---------------------------------------------------
-		
-func _handle_body_exited(other_obj):
-	pass
 
 #---------------------------------------------------
 		
@@ -66,6 +61,7 @@ func set_bee_attacking(attacking):
 
 func _handle_bee_body_entered(other_body):
 	if other_body.is_in_group("Dog") and bee_attacking:
+		GameManager.display_remark("Stung by a fire bee?! On a day like this?...")
 		print("Stung da dog!")
 		GameManager.add_heat(heat_event_amount)
 
