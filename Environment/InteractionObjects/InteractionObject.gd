@@ -23,7 +23,6 @@ func _handle_body_entered(other_obj):
 func _handle_body_exited(other_obj):
 	if other_obj.is_in_group("Dog"):
 		dog = null
-		print("ok")
 		event_dog_exited(other_obj)
 
 #---------------------------------------------------

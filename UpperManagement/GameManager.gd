@@ -14,6 +14,8 @@ var gamestate = GAMEPLAY
 signal on_overheat
 
 signal on_display_remark
+signal fade_to_black
+signal fade_to_transparent
 
 
 #---------------------------------------------------
@@ -48,3 +50,6 @@ func _process(delta):
 			overheated = true
 			gamestate = OVERHEATED
 			emit_signal("on_overheat")
+			
+			yield(get_tree().create_timer(3.0), "timeout")
+			emit_signal("fade_to_black")

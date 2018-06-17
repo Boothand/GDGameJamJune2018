@@ -1,32 +1,33 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://Dog/Dog.gd" type="Script" id=1]
 [ext_resource path="res://Dog/Assets_dog/tail3.png" type="Texture" id=2]
 [ext_resource path="res://Dog/Assets_dog/spinelower.png" type="Texture" id=3]
 [ext_resource path="res://Dog/Assets_dog/spineupper.png" type="Texture" id=4]
 [ext_resource path="res://Dog/Assets_dog/neck.png" type="Texture" id=5]
-[ext_resource path="res://Dog/Assets_dog/head.png" type="Texture" id=6]
-[ext_resource path="res://Dog/Assets_dog/jaw.png" type="Texture" id=7]
-[ext_resource path="res://Dog/Assets_dog/tongue.png" type="Texture" id=8]
-[ext_resource path="res://Particle Assets/effect_droplet.png" type="Texture" id=9]
-[ext_resource path="res://Dog/Assets_dog/ear.png" type="Texture" id=10]
-[ext_resource path="res://Dog/Assets_dog/forethigh_front.png" type="Texture" id=11]
-[ext_resource path="res://Dog/Assets_dog/foreleg_front.png" type="Texture" id=12]
-[ext_resource path="res://Dog/Assets_dog/forefoot_front.png" type="Texture" id=13]
-[ext_resource path="res://Dog/Assets_dog/foretoe_front.png" type="Texture" id=14]
-[ext_resource path="res://Dog/Assets_dog/hindthigh_front.png" type="Texture" id=15]
-[ext_resource path="res://Dog/Assets_dog/hindleg_front.png" type="Texture" id=16]
-[ext_resource path="res://Dog/Assets_dog/hindfoot_front.png" type="Texture" id=17]
-[ext_resource path="res://Dog/Assets_dog/hindtoe_front.png" type="Texture" id=18]
-[ext_resource path="res://Dog/Assets_dog/tail1.png" type="Texture" id=19]
-[ext_resource path="res://Dog/Assets_dog/tail2.png" type="Texture" id=20]
-[ext_resource path="res://Dog/Crouch.anim" type="Animation" id=21]
-[ext_resource path="res://Dog/CrouchWalk.anim" type="Animation" id=22]
-[ext_resource path="res://Dog/Idle.anim" type="Animation" id=23]
-[ext_resource path="res://Dog/Jump.anim" type="Animation" id=24]
-[ext_resource path="res://Dog/Walk.anim" type="Animation" id=25]
-[ext_resource path="res://Dog/DogAnimator.gd" type="Script" id=26]
-[ext_resource path="res://Dog/Player_Input.gd" type="Script" id=27]
+[ext_resource path="res://Dog/Assets_dog/barrel.png" type="Texture" id=6]
+[ext_resource path="res://Dog/Assets_dog/head.png" type="Texture" id=7]
+[ext_resource path="res://Dog/Assets_dog/jaw.png" type="Texture" id=8]
+[ext_resource path="res://Dog/Assets_dog/tongue.png" type="Texture" id=9]
+[ext_resource path="res://Particle Assets/effect_droplet.png" type="Texture" id=10]
+[ext_resource path="res://Dog/Assets_dog/ear.png" type="Texture" id=11]
+[ext_resource path="res://Dog/Assets_dog/forethigh_front.png" type="Texture" id=12]
+[ext_resource path="res://Dog/Assets_dog/foreleg_front.png" type="Texture" id=13]
+[ext_resource path="res://Dog/Assets_dog/forefoot_front.png" type="Texture" id=14]
+[ext_resource path="res://Dog/Assets_dog/foretoe_front.png" type="Texture" id=15]
+[ext_resource path="res://Dog/Assets_dog/hindthigh_front.png" type="Texture" id=16]
+[ext_resource path="res://Dog/Assets_dog/hindleg_front.png" type="Texture" id=17]
+[ext_resource path="res://Dog/Assets_dog/hindfoot_front.png" type="Texture" id=18]
+[ext_resource path="res://Dog/Assets_dog/hindtoe_front.png" type="Texture" id=19]
+[ext_resource path="res://Dog/Assets_dog/tail1.png" type="Texture" id=20]
+[ext_resource path="res://Dog/Assets_dog/tail2.png" type="Texture" id=21]
+[ext_resource path="res://Dog/Crouch.anim" type="Animation" id=22]
+[ext_resource path="res://Dog/CrouchWalk.anim" type="Animation" id=23]
+[ext_resource path="res://Dog/Idle.anim" type="Animation" id=24]
+[ext_resource path="res://Dog/Jump.anim" type="Animation" id=25]
+[ext_resource path="res://Dog/Walk.anim" type="Animation" id=26]
+[ext_resource path="res://Dog/DogAnimator.gd" type="Script" id=27]
+[ext_resource path="res://Dog/Player_Input.gd" type="Script" id=28]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -300,7 +301,7 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo" ]
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=37]
 
 render_priority = 0
 flags_transparent = true
@@ -353,7 +354,7 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo" ]
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=7]
 
 render_priority = 0
 flags_transparent = true
@@ -406,6 +407,59 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo" ]
 
+[sub_resource type="SpatialMaterial" id=8]
+
+render_priority = 0
+flags_transparent = true
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 2
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 8 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Albedo" ]
+
 [sub_resource type="SpatialMaterial" id=9]
 
 render_priority = 16
@@ -430,7 +484,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 8 )
+albedo_texture = ExtResource( 9 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -531,7 +585,7 @@ params_billboard_mode = 1
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 9 )
+albedo_texture = ExtResource( 10 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -590,7 +644,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 10 )
+albedo_texture = ExtResource( 11 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -643,7 +697,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 10 )
+albedo_texture = ExtResource( 11 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -696,7 +750,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 11 )
+albedo_texture = ExtResource( 12 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -749,7 +803,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 12 )
+albedo_texture = ExtResource( 13 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -802,7 +856,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource( 14 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -855,7 +909,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 14 )
+albedo_texture = ExtResource( 15 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -908,7 +962,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 11 )
+albedo_texture = ExtResource( 12 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -961,7 +1015,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 12 )
+albedo_texture = ExtResource( 13 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -1014,7 +1068,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource( 14 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -1067,7 +1121,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 14 )
+albedo_texture = ExtResource( 15 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -1120,7 +1174,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 15 )
+albedo_texture = ExtResource( 16 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -1173,7 +1227,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 16 )
+albedo_texture = ExtResource( 17 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -1226,7 +1280,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 17 )
+albedo_texture = ExtResource( 18 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -1279,7 +1333,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 18 )
+albedo_texture = ExtResource( 19 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -1332,7 +1386,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 15 )
+albedo_texture = ExtResource( 16 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -1385,7 +1439,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 16 )
+albedo_texture = ExtResource( 17 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -1438,7 +1492,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 17 )
+albedo_texture = ExtResource( 18 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -1491,7 +1545,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 18 )
+albedo_texture = ExtResource( 19 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -1544,7 +1598,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 19 )
+albedo_texture = ExtResource( 20 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -1597,7 +1651,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 20 )
+albedo_texture = ExtResource( 21 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -1911,7 +1965,6 @@ _sections_unfolded = [ "Transform", "material" ]
 
 [node name="Neck Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="4"]
 
-editor/display_folded = true
 transform = Transform( -1, -2.77264e-007, -5.60699e-009, -1.78269e-007, 0.658183, -0.752858, 2.12431e-007, -0.752858, -0.658184, 3.5974e-007, 2.22137, 3.81877 )
 bone_name = "neck"
 
@@ -1932,8 +1985,26 @@ skeleton = NodePath("..")
 material/0 = SubResource( 6 )
 _sections_unfolded = [ "Transform", "material" ]
 
+[node name="MeshInstance3" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Neck Sprite" index="1"]
+
+transform = Transform( 1.40066e-007, -0.862947, 2.93998e-008, -0.49668, -1.6698e-007, -0.586659, 0.54058, 7.15786e-008, -0.549808, -0.0432149, 1.23492, -0.760093 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = SubResource( 37 )
+_sections_unfolded = [ "Transform", "material" ]
+
 [node name="Head Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="5"]
 
+editor/display_folded = true
 transform = Transform( 1, 1.66855e-007, 8.07363e-008, 6.4768e-008, 0.0935775, -0.995612, -1.73678e-007, 0.995612, 0.0935771, 3.68358e-007, 3.37856, 4.83043 )
 bone_name = "head"
 
@@ -1979,6 +2050,7 @@ _sections_unfolded = [ "Transform", "material" ]
 
 [node name="Tongue Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="7"]
 
+editor/display_folded = true
 transform = Transform( -1, 2.5471e-007, 3.69674e-007, -1.29744e-007, -0.952297, 0.305174, 4.2977e-007, 0.305174, 0.952297, 0.060171, 4.08035, 4.4093 )
 bone_name = "tongue"
 
@@ -2031,6 +2103,7 @@ _sections_unfolded = [ "Draw Passes", "Drawing", "Process Material", "Time" ]
 
 [node name="Ear R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="8"]
 
+editor/display_folded = true
 transform = Transform( -1, -3.56735e-007, -3.96822e-007, -2.79986e-007, 0.983866, -0.178906, 4.54242e-007, -0.178905, -0.983866, 5.53564e-007, 3.37166, 5.28029 )
 bone_name = "ear_r"
 
@@ -2053,6 +2126,7 @@ _sections_unfolded = [ "Transform", "material" ]
 
 [node name="Ear L Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="9"]
 
+editor/display_folded = true
 transform = Transform( -1, -3.56725e-007, -3.96821e-007, -2.79976e-007, 0.983866, -0.178905, 4.54239e-007, -0.178905, -0.983867, 5.50823e-007, 3.54287, 5.29131 )
 bone_name = "ear_l"
 
@@ -2075,12 +2149,13 @@ _sections_unfolded = [ "Transform", "material" ]
 
 [node name="Front Thigh R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="10"]
 
+editor/display_folded = true
 transform = Transform( 1, -1.39067e-007, 3.15231e-008, 6.41322e-008, 0.636067, 0.771634, -1.2736e-007, -0.771634, 0.636067, 0.301608, 2.70495, 3.04304 )
 bone_name = "front_thigh_r"
 
 [node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Front Thigh R Sprite" index="0"]
 
-transform = Transform( -2.57684e-008, 1.28009, -9.9481e-009, -0.606817, -5.4444e-008, -0.227586, -0.143939, 3.58341e-010, 0.959457, -2.68221e-007, 0.0962749, -0.624835 )
+transform = Transform( -2.57684e-008, 1.28009, -9.94812e-009, -0.606817, -5.4444e-008, -0.227586, -0.143939, 3.58334e-010, 0.959457, -2.38419e-007, 0.0962744, -0.624835 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2097,6 +2172,7 @@ _sections_unfolded = [ "Transform", "material" ]
 
 [node name="Front Leg R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="11"]
 
+editor/display_folded = true
 transform = Transform( 1, -6.41897e-008, 1.38463e-007, 7.51539e-008, 0.996739, -0.0806954, -1.32832e-007, 0.0806955, 0.996739, 0.301608, 1.68199, 2.19981 )
 bone_name = "front_leg_r"
 
@@ -2119,6 +2195,7 @@ _sections_unfolded = [ "Transform", "material" ]
 
 [node name="Front Foot R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="12"]
 
+editor/display_folded = true
 transform = Transform( 1, 1.07257e-008, 1.56254e-007, 7.71458e-008, 0.834504, -0.551002, -1.36305e-007, 0.551002, 0.834504, 0.301607, 1.81695, 0.532908 )
 bone_name = "front_foot_r"
 
@@ -2141,6 +2218,7 @@ _sections_unfolded = [ "Transform", "material" ]
 
 [node name="Front Toe R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="13"]
 
+editor/display_folded = true
 transform = Transform( 1, 1.06879e-007, 7.32219e-008, 7.32221e-008, -2.68221e-007, -1, -1.06879e-007, 1, 0, 0.301607, 2.2438, -0.113568 )
 bone_name = "front_toe_r"
 
@@ -2251,12 +2329,12 @@ _sections_unfolded = [ "Transform", "material" ]
 
 [node name="Hind Thigh R Sprite" type="BoneAttachment" parent="Spatial/Armature/Skeleton7" index="18"]
 
-transform = Transform( 1, 9.52112e-009, 2.31782e-008, -5.74839e-010, 0.933472, -0.35865, -2.5051e-008, 0.35865, 0.933472, -0.171848, -1.96416, 3.44602 )
+transform = Transform( 1, 9.52112e-009, 2.31782e-008, -5.7484e-010, 0.933472, -0.35865, -2.5051e-008, 0.35865, 0.933472, -0.171848, -1.96416, 3.44602 )
 bone_name = "hind_thigh_r"
 
 [node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Hind Thigh R Sprite" index="0"]
 
-transform = Transform( -2.25987e-008, 0.999999, 1.13878e-008, -0.532585, -4.25019e-008, 0.260521, 0.127957, -2.90584e-010, 1.08434, -1.78814e-007, 0.0602001, -0.774987 )
+transform = Transform( -2.25987e-008, 0.999999, 1.13878e-008, -0.532585, -4.25019e-008, 0.260521, 0.127957, -2.90584e-010, 1.08434, -1.93715e-007, 0.0602001, -0.774987 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2344,7 +2422,7 @@ bone_name = "hind_thigh_l"
 
 [node name="MeshInstance2" type="MeshInstance" parent="Spatial/Armature/Skeleton7/Hind Thigh L Sprite" index="0"]
 
-transform = Transform( -2.27283e-008, 0.999999, 2.84217e-014, -0.519963, -4.37114e-008, -1.19209e-007, -4.47035e-008, -2.84217e-014, 0.956834, -0.604236, 0.0962751, -0.914987 )
+transform = Transform( -2.27283e-008, 0.999999, 1.95399e-014, -0.519963, -4.37114e-008, -8.9407e-008, -5.96046e-008, -2.22045e-014, 0.956834, -0.604236, 0.0962747, -0.914987 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2476,11 +2554,11 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Crouch = ExtResource( 21 )
-anims/CrouchWalk = ExtResource( 22 )
-anims/Idle = ExtResource( 23 )
-anims/Jump = ExtResource( 24 )
-anims/Walk = ExtResource( 25 )
+anims/Crouch = ExtResource( 22 )
+anims/CrouchWalk = ExtResource( 23 )
+anims/Idle = ExtResource( 24 )
+anims/Jump = ExtResource( 25 )
+anims/Walk = ExtResource( 26 )
 blend_times = [  ]
 
 [node name="AnimationTreePlayer" type="AnimationTreePlayer" parent="." index="2"]
@@ -2491,10 +2569,10 @@ base_path = NodePath("..")
 active = false
 data = {
 "active": false,
-"connections": [ "crouch_blend", "out", 0, "idle_walk_blend", "oneshot_jump", 0, "anim 3", "oneshot_jump", 1, "anim 4", "crouchwalk_blend", 0, "anim 5", "crouchwalk_blend", 1, "anim", "idle_walk_blend", 0, "anim 2", "idle_walk_blend", 1, "oneshot_jump", "crouch_blend", 0, "crouchwalk_blend", "crouch_blend", 1 ],
+"connections": [ "crouch_blend", "out", 0, "oneshot_jump", "crouch_blend", 0, "crouchwalk_blend", "crouch_blend", 1, "idle_walk_blend", "oneshot_jump", 0, "anim 3", "oneshot_jump", 1, "anim", "idle_walk_blend", 0, "anim 2", "idle_walk_blend", 1, "anim 4", "crouchwalk_blend", 0, "anim 5", "crouchwalk_blend", 1 ],
 "master": NodePath(""),
 "nodes": [ {
-"animation": ExtResource( 23 ),
+"animation": ExtResource( 24 ),
 "filter": [  ],
 "id": "anim",
 "position": Vector2( 60, 60 ),
@@ -2503,6 +2581,18 @@ data = {
 "id": "out",
 "position": Vector2( 1094, 76 ),
 "type": "output"
+}, {
+"blend": 0.0,
+"filter": [  ],
+"id": "crouch_blend",
+"position": Vector2( 815, 43 ),
+"type": "blend2"
+}, {
+"animation": ExtResource( 25 ),
+"filter": [  ],
+"id": "anim 3",
+"position": Vector2( 362, 224 ),
+"type": "animation"
 }, {
 "autorestart": false,
 "autorestart_delay": 1.0,
@@ -2515,29 +2605,17 @@ data = {
 "position": Vector2( 453, 61 ),
 "type": "oneshot"
 }, {
-"animation": ExtResource( 21 ),
+"animation": ExtResource( 22 ),
 "filter": [  ],
 "id": "anim 4",
 "position": Vector2( 585, 218 ),
 "type": "animation"
 }, {
-"animation": ExtResource( 25 ),
+"animation": ExtResource( 26 ),
 "filter": [  ],
 "id": "anim 2",
 "position": Vector2( 65, 172 ),
 "type": "animation"
-}, {
-"animation": ExtResource( 22 ),
-"filter": [  ],
-"id": "anim 5",
-"position": Vector2( 596, 347 ),
-"type": "animation"
-}, {
-"blend": 0.0,
-"filter": [  ],
-"id": "crouchwalk_blend",
-"position": Vector2( 804, 197 ),
-"type": "blend2"
 }, {
 "blend": 0.0,
 "filter": [  ],
@@ -2545,20 +2623,20 @@ data = {
 "position": Vector2( 271, 61 ),
 "type": "blend2"
 }, {
-"animation": ExtResource( 24 ),
-"filter": [  ],
-"id": "anim 3",
-"position": Vector2( 362, 224 ),
-"type": "animation"
-}, {
 "blend": 0.0,
 "filter": [  ],
-"id": "crouch_blend",
-"position": Vector2( 815, 43 ),
+"id": "crouchwalk_blend",
+"position": Vector2( 804, 197 ),
 "type": "blend2"
+}, {
+"animation": ExtResource( 23 ),
+"filter": [  ],
+"id": "anim 5",
+"position": Vector2( 596, 347 ),
+"type": "animation"
 } ]
 }
-script = ExtResource( 26 )
+script = ExtResource( 27 )
 movement_blend_speed = 2.0
 crouch_blend_speed = 5.0
 
@@ -2578,6 +2656,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Player Input" type="Node" parent="." index="5"]
 
-script = ExtResource( 27 )
+script = ExtResource( 28 )
 
 

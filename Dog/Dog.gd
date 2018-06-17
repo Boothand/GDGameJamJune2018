@@ -73,7 +73,6 @@ func _process(delta):
 		# Moving sideways
 		velocity.x = lerp(velocity.x, x_input * move_speed, delta * movement_responsiveness)
 		
-		moving = abs(x_input) > 0.0
 		
 		# Check for collisions:
 		if is_on_floor():
@@ -88,6 +87,10 @@ func _process(delta):
 		$Spatial.rotation_degrees.y = lerp($Spatial.rotation_degrees.y, target_rot, delta * turnaround_speed)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, delta * 10.0)
+		x_input = 0.0
+		
+	moving = abs(x_input) > 0.0
+	
 		
 	if crouching:
 		$CollisionShape.disabled = true

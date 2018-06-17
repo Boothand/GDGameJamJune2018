@@ -2,13 +2,13 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/bush1.png-7878f5b50e4734f32bae77fc2ab92db3.s3tc.stex"
-path.etc2="res://.import/bush1.png-7878f5b50e4734f32bae77fc2ab92db3.etc2.stex"
+path.s3tc="res://.import/ice100x.png-25bcf76e9f8cb24fd399cb9b67861d25.s3tc.stex"
+path.etc2="res://.import/ice100x.png-25bcf76e9f8cb24fd399cb9b67861d25.etc2.stex"
 
 [deps]
 
-source_file="res://Environment/bush1.png"
-dest_files=[ "res://.import/bush1.png-7878f5b50e4734f32bae77fc2ab92db3.s3tc.stex", "res://.import/bush1.png-7878f5b50e4734f32bae77fc2ab92db3.etc2.stex" ]
+source_file="res://Environment/Ice Chest/ice100x.png"
+dest_files=[ "res://.import/ice100x.png-25bcf76e9f8cb24fd399cb9b67861d25.s3tc.stex", "res://.import/ice100x.png-25bcf76e9f8cb24fd399cb9b67861d25.etc2.stex" ]
 
 [params]
 

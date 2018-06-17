@@ -13,7 +13,7 @@ func _ready():
 func _process(delta):
 	var x_input = 0.0
 	
-	if dog:
+	if dog and GameManager.gamestate == GameManager.GAMEPLAY:
 		if Input.is_action_pressed("ui_right"):
 			x_input += 1.0
 		elif Input.is_action_pressed("ui_left"):

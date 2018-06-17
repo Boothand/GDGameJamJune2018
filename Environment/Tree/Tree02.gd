@@ -9,6 +9,8 @@ var danger_zone_threshold = 5.0
 
 var bee_attacking = false
 
+var dog_stung = false
+
 #---------------------------------------------------
 func _ready():
 	._ready()
@@ -29,13 +31,10 @@ func event_dog_entered(in_dog):
 		
 func start_roulette_event_routine():
 	
-	while dog_cooling_timer < danger_zone_threshold:
+	while dog_cooling_timer < danger_zone_threshold and !event_has_happened:
 		yield(get_tree(), "idle_frame")
-		
-	if !dog:
-		return
 	
-	while true:
+	while true and !event_has_happened:
 		
 		randomize()
 		var randnum = rand_range(0.0, 100.0)
@@ -49,8 +48,14 @@ func start_roulette_event_routine():
 
 func initiate_bad_event():
 	.initiate_bad_event()
+	if dog:
+		$AnimationPlayer.play("Bee Attack")
 	
-	$AnimationPlayer.play("Bee Attack")
+	
+	yield($AnimationPlayer, "animation_finished")
+	
+	if !dog_stung:
+		GameManager.display_remark("So you didn't get stung by the bee. Good for you, dog.")
 
 #---------------------------------------------------
 
@@ -61,8 +66,8 @@ func set_bee_attacking(attacking):
 
 func _handle_bee_body_entered(other_body):
 	if other_body.is_in_group("Dog") and bee_attacking:
-		GameManager.display_remark("Stung by a fire bee?! On a day like this?...")
-		print("Stung da dog!")
+		dog_stung = true
+		GameManager.display_remark("Stung by a fire bee?! What a goofdog.")
 		GameManager.add_heat(heat_event_amount)
 
 #---------------------------------------------------
