@@ -249,7 +249,7 @@ disabled = false
 
 [node name="Spatial" type="Spatial" parent="." index="1"]
 
-transform = Transform( 0.999999, 0, 3.03406e-008, 0, 0.191952, 0, 2.38899e-010, 0, 0.938407, 0, 0, 0 )
+transform = Transform( 0.999999, 0, 3.03405e-008, 0, 0.191952, 0, 2.38899e-010, 0, 0.938407, 0.11197, 0, 4.34297e-010 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Spatial" index="0"]
 
