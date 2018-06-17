@@ -1,8 +1,9 @@
 extends Camera
 
-export var right_edge_threshold = 0.2
-export var left_edge_threshold = 0.15
-export var skip_interval = 3.0
+export var right_edge_threshold = 0.3
+export var left_edge_threshold = 0.1
+export var skip_interval_right = 2.0
+export var skip_interval_left = 1.5
 
 export var camera_stiffness = 2.0
 
@@ -27,8 +28,8 @@ func _process(delta):
 		var target_screenpos = unproject_position(target.global_transform.origin) / get_viewport().size
 		
 		if target_screenpos.x > 1.0 - right_edge_threshold:
-			targetpos.x += skip_interval
+			targetpos.x += skip_interval_right
 		elif target_screenpos.x < right_edge_threshold:
-			targetpos.x -= skip_interval
+			targetpos.x -= skip_interval_left
 			
 	transform.origin = transform.origin.linear_interpolate(targetpos, delta * camera_stiffness)

@@ -67,22 +67,34 @@ func _physics_process(delta):
 func _process(delta):
 	# Falling:
 	velocity += Vector3(0.0, -9.81 * delta, 0.0)
-	
-	# Moving sideways
-	velocity.x = lerp(velocity.x, x_input * move_speed, delta * movement_responsiveness)
-	
-	moving = abs(x_input) > 0.0
-	
-	# Check for collisions:
-	if is_on_floor():
-		velocity.y = -0.1
-	
-	# Turning around
-	if velocity.x > turnaround_threshold:
-		target_rot = 0.0
-	elif velocity.x < -turnaround_threshold:
-		target_rot = 180.0
 		
-	$Spatial.rotation_degrees.y = lerp($Spatial.rotation_degrees.y, target_rot, delta * turnaround_speed)
+	if GameManager.gamestate == GameManager.GAMEPLAY:
+		
+		# Moving sideways
+		velocity.x = lerp(velocity.x, x_input * move_speed, delta * movement_responsiveness)
+		
+		moving = abs(x_input) > 0.0
+		
+		# Check for collisions:
+		if is_on_floor():
+			velocity.y = -0.1
+		
+		# Turning around
+		if velocity.x > turnaround_threshold:
+			target_rot = 0.0
+		elif velocity.x < -turnaround_threshold:
+			target_rot = 180.0
+			
+		$Spatial.rotation_degrees.y = lerp($Spatial.rotation_degrees.y, target_rot, delta * turnaround_speed)
+	else:
+		velocity.x = lerp(velocity.x, 0.0, delta * 10.0)
+		
+	if crouching:
+		$CollisionShape.disabled = true
+		$CollisionShape_Crouch.disabled = false
+	else:
+		$CollisionShape.disabled = false
+		$CollisionShape_Crouch.disabled = true
+		
 	
 	
