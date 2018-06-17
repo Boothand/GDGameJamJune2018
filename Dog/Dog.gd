@@ -21,6 +21,7 @@ signal on_crouch_end
 #---------------------------------------------------
 func _ready():
 	$AnimationTreePlayer.active = true
+	GameManager.connect("on_overheat", self, "_handle_overheat")
 	pass
 #---------------------------------------------------
 
@@ -48,9 +49,17 @@ func input_crouch(crouch):
 		
 	crouching = crouch
 
+#---------------------------------------------------
+
+func _handle_overheat():
+	print("Dog overheated")
+	
+#---------------------------------------------------
+
 func _physics_process(delta):
+	# Some damp
 	velocity *= 0.99
-#	move_and_slide(velocity, Vector2(-1.0, 0.0))
+	
 	move_and_slide(velocity, Vector3(0.0, 1.0, 0.0))
 
 #---------------------------------------------------

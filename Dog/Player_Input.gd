@@ -2,9 +2,13 @@ extends Node
 
 var dog
 
+
+#---------------------------------------------------
 func _ready():
 	dog = get_parent()
 	pass
+#---------------------------------------------------
+
 
 func _process(delta):
 	var x_input = 0.0

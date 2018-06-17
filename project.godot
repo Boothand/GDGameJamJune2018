@@ -14,6 +14,10 @@ config/name="GDGameJamJune2018"
 run/main_scene="res://Scenes/GamePlayScene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameManager="*res://UpperManagement/GameManager.gd"
+
 [global]
 
 language=false

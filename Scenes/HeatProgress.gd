@@ -1,17 +1,14 @@
 extends TextureProgress
 
-export var grow_rate = 0.5
-
-var overheated = false
-signal on_overheat
-
+#---------------------------------------------------
 func _ready():
+	max_value = GameManager.max_temperature
 	pass
+#---------------------------------------------------
+
+
 
 func _process(delta):
-	value += delta * grow_rate
+	value = lerp(value, GameManager.temperature, delta * 8.0)
 	
-	if value >= 100.0 and !overheated:
-		overheated = true
-		emit_signal("on_overheat")
 	pass
