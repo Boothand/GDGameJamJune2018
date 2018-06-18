@@ -47,10 +47,7 @@ func _handle_resume_pressed():
 #---------------------------------------------------
 	
 func _handle_restart_pressed():
-	get_tree().reload_current_scene()
-	
-	if get_tree().paused:
-		GameManager.toggle_pause()
+	GameManager.restart_level()
 	
 #---------------------------------------------------	
 

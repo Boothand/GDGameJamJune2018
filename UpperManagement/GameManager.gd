@@ -36,6 +36,16 @@ func toggle_pause():
 		emit_signal("on_paused")
 	else:
 		emit_signal("on_resumed")
+		
+
+func restart_level():
+	get_tree().reload_current_scene()
+	
+	if get_tree().paused:
+		toggle_pause()
+		
+	temperature = 10.0
+	gamestate = MENU
 	
 #---------------------------------------------------
 	
