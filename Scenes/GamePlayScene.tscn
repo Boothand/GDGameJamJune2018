@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Environment/GrassyGround01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/DogCamera.gd" type="Script" id=2]
@@ -7,15 +7,17 @@
 [ext_resource path="res://Environment/Tree/Tree01.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Environment/Ice Chest/Ice chest.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Environment/Tree/Tree02.tscn" type="PackedScene" id=7]
-[ext_resource path="res://UI/thermometer_white.png" type="Texture" id=8]
-[ext_resource path="res://UI/thermometer_red.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/HeatProgress.gd" type="Script" id=10]
-[ext_resource path="res://UpperManagement/ComplimentDisplay.gd" type="Script" id=11]
-[ext_resource path="res://UpperManagement/FadeImage.gd" type="Script" id=12]
-[ext_resource path="res://Environment/Backdrop/backdrop1.png" type="Texture" id=13]
-[ext_resource path="res://Environment/bush1.png" type="Texture" id=14]
-[ext_resource path="res://Environment/bush2.png" type="Texture" id=15]
-[ext_resource path="res://Environment/brick1000x.png" type="Texture" id=16]
+[ext_resource path="res://UI/MenuUI.gd" type="Script" id=8]
+[ext_resource path="res://UI/MenuButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/thermometer_white.png" type="Texture" id=10]
+[ext_resource path="res://UI/thermometer_red.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/HeatProgress.gd" type="Script" id=12]
+[ext_resource path="res://UpperManagement/ComplimentDisplay.gd" type="Script" id=13]
+[ext_resource path="res://UpperManagement/FadeImage.gd" type="Script" id=14]
+[ext_resource path="res://Environment/Backdrop/backdrop1.png" type="Texture" id=15]
+[ext_resource path="res://Environment/bush1.png" type="Texture" id=16]
+[ext_resource path="res://Environment/bush2.png" type="Texture" id=17]
+[ext_resource path="res://Environment/brick1000x.png" type="Texture" id=18]
 
 [sub_resource type="Environment" id=1]
 
@@ -180,7 +182,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource( 15 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -233,7 +235,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 0.804688, 0.804688, 0.804688, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource( 15 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -286,7 +288,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 0.648438, 0.648438, 0.648438, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource( 15 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -319,112 +321,6 @@ _sections_unfolded = [ "Albedo" ]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector2( 1, 1 )
-
-[sub_resource type="SpatialMaterial" id=10]
-
-render_priority = 0
-flags_transparent = true
-flags_unshaded = true
-flags_vertex_lighting = false
-flags_no_depth_test = false
-flags_use_point_size = false
-flags_world_triplanar = false
-flags_fixed_size = false
-flags_albedo_tex_force_srgb = false
-vertex_color_use_as_albedo = false
-vertex_color_is_srgb = false
-params_diffuse_mode = 0
-params_specular_mode = 0
-params_blend_mode = 0
-params_cull_mode = 0
-params_depth_draw_mode = 0
-params_line_width = 1.0
-params_point_size = 1.0
-params_billboard_mode = 0
-params_grow = false
-params_use_alpha_scissor = false
-albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 14 )
-metallic = 0.0
-metallic_specular = 0.5
-metallic_texture_channel = 0
-roughness = 0.0
-roughness_texture_channel = 0
-emission_enabled = false
-normal_enabled = false
-rim_enabled = false
-clearcoat_enabled = false
-anisotropy_enabled = false
-ao_enabled = false
-depth_enabled = false
-subsurf_scatter_enabled = false
-transmission_enabled = false
-refraction_enabled = false
-detail_enabled = false
-uv1_scale = Vector3( 1, 1, 1 )
-uv1_offset = Vector3( 0, 0, 0 )
-uv1_triplanar = false
-uv1_triplanar_sharpness = 1.0
-uv2_scale = Vector3( 1, 1, 1 )
-uv2_offset = Vector3( 0, 0, 0 )
-uv2_triplanar = false
-uv2_triplanar_sharpness = 1.0
-proximity_fade_enable = false
-distance_fade_enable = false
-_sections_unfolded = [ "Albedo", "UV1" ]
-
-[sub_resource type="SpatialMaterial" id=11]
-
-render_priority = 0
-flags_transparent = true
-flags_unshaded = true
-flags_vertex_lighting = false
-flags_no_depth_test = false
-flags_use_point_size = false
-flags_world_triplanar = false
-flags_fixed_size = false
-flags_albedo_tex_force_srgb = false
-vertex_color_use_as_albedo = false
-vertex_color_is_srgb = false
-params_diffuse_mode = 0
-params_specular_mode = 0
-params_blend_mode = 0
-params_cull_mode = 0
-params_depth_draw_mode = 0
-params_line_width = 1.0
-params_point_size = 1.0
-params_billboard_mode = 0
-params_grow = false
-params_use_alpha_scissor = false
-albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 15 )
-metallic = 0.0
-metallic_specular = 0.5
-metallic_texture_channel = 0
-roughness = 0.0
-roughness_texture_channel = 0
-emission_enabled = false
-normal_enabled = false
-rim_enabled = false
-clearcoat_enabled = false
-anisotropy_enabled = false
-ao_enabled = false
-depth_enabled = false
-subsurf_scatter_enabled = false
-transmission_enabled = false
-refraction_enabled = false
-detail_enabled = false
-uv1_scale = Vector3( 1, 1, 1 )
-uv1_offset = Vector3( 0, 0, 0 )
-uv1_triplanar = false
-uv1_triplanar_sharpness = 1.0
-uv2_scale = Vector3( 1, 1, 1 )
-uv2_offset = Vector3( 0, 0, 0 )
-uv2_triplanar = false
-uv2_triplanar_sharpness = 1.0
-proximity_fade_enable = false
-distance_fade_enable = false
-_sections_unfolded = [ "Albedo", "UV1" ]
 
 [sub_resource type="SpatialMaterial" id=8]
 
@@ -479,7 +375,113 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo", "UV1" ]
 
-[sub_resource type="BoxShape" id=9]
+[sub_resource type="SpatialMaterial" id=9]
+
+render_priority = 0
+flags_transparent = true
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 17 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Albedo", "UV1" ]
+
+[sub_resource type="SpatialMaterial" id=10]
+
+render_priority = 0
+flags_transparent = true
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 18 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Albedo", "UV1" ]
+
+[sub_resource type="BoxShape" id=11]
 
 extents = Vector3( 1, 1, 1 )
 
@@ -535,16 +537,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.71323, 0.060881, -0.0805172 
 transform = Transform( 1.5661, 0, 0, 0, 1.5661, 0, 0, 0, 1.5661, 2.86717, 0.45654, -0.077445 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="8"]
+[node name="UI" type="CanvasLayer" parent="." index="8"]
 
+pause_mode = 2
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+script = ExtResource( 8 )
+_sections_unfolded = [ "Pause" ]
 
-[node name="In-game UI" type="Control" parent="CanvasLayer" index="0"]
+[node name="MenuUI" type="Control" parent="UI" index="0"]
 
+pause_mode = 2
+editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -555,8 +563,122 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Pause" ]
 
-[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer/In-game UI" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MenuUI" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = -76.0
+margin_right = 82.0
+margin_bottom = 75.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+_sections_unfolded = [ "Mouse" ]
+
+[node name="StartButton" parent="UI/MenuUI/VBoxContainer" index="0" instance=ExtResource( 9 )]
+
+margin_left = 0.0
+margin_top = 53.0
+margin_right = 165.0
+margin_bottom = 73.0
+text = "Start"
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="ExitButton" parent="UI/MenuUI/VBoxContainer" index="1" instance=ExtResource( 9 )]
+
+margin_left = 0.0
+margin_top = 77.0
+margin_right = 165.0
+margin_bottom = 97.0
+text = "Exit"
+
+[node name="IngameUI" type="Control" parent="UI" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Mouse", "Pause" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="IngamePauseMenu" type="Control" parent="UI/IngameUI" index="0"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Mouse", "Pause" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/IngameUI/IngamePauseMenu" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = -76.0
+margin_right = 82.0
+margin_bottom = 75.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+_sections_unfolded = [ "Mouse" ]
+
+[node name="ResumeButton" parent="UI/IngameUI/IngamePauseMenu/VBoxContainer" index="0" instance=ExtResource( 9 )]
+
+margin_left = 0.0
+margin_top = 41.0
+margin_right = 165.0
+margin_bottom = 61.0
+text = "Resume"
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="RestartButton" parent="UI/IngameUI/IngamePauseMenu/VBoxContainer" index="1" instance=ExtResource( 9 )]
+
+margin_left = 0.0
+margin_top = 65.0
+margin_right = 165.0
+margin_bottom = 85.0
+text = "Restart"
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="ExitButton" parent="UI/IngameUI/IngamePauseMenu/VBoxContainer" index="2" instance=ExtResource( 9 )]
+
+margin_left = 0.0
+margin_top = 89.0
+margin_right = 165.0
+margin_bottom = 109.0
+text = "Exit"
+
+[node name="TextureProgress" type="TextureProgress" parent="UI/IngameUI" index="1"]
 
 anchor_left = 0.5
 anchor_top = 1.0
@@ -580,16 +702,16 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 8 )
+texture_under = ExtResource( 10 )
 texture_over = null
-texture_progress = ExtResource( 9 )
+texture_progress = ExtResource( 11 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 10 )
+script = ExtResource( 12 )
 _sections_unfolded = [ "Radial Fill", "Rect", "Size Flags", "Textures" ]
 
-[node name="RemarkDisplay" type="Label" parent="CanvasLayer/In-game UI" index="1"]
+[node name="RemarkDisplay" type="Label" parent="UI/IngameUI" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -612,10 +734,10 @@ valign = 1
 percent_visible = 0.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 11 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/In-game UI/RemarkDisplay" index="0"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/IngameUI/RemarkDisplay" index="0"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -625,21 +747,24 @@ playback_speed = 1.0
 "anims/Display Remark" = SubResource( 2 )
 blend_times = [  ]
 
-[node name="FadeImage" type="Panel" parent="CanvasLayer" index="1"]
+[node name="FadeImage" type="Panel" parent="UI" index="2"]
 
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color( 0, 0, 0, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 12 )
-_sections_unfolded = [ "Visibility" ]
+script = ExtResource( 14 )
+_sections_unfolded = [ "Mouse", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Backdrop Layer 1" type="Spatial" parent="." index="9"]
 
@@ -820,7 +945,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 10 )
+material/0 = SubResource( 8 )
 _sections_unfolded = [ "material" ]
 
 [node name="Grass Detail2" type="MeshInstance" parent="." index="13"]
@@ -837,7 +962,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 10 )
+material/0 = SubResource( 8 )
 _sections_unfolded = [ "material" ]
 
 [node name="Grass Detail3" type="MeshInstance" parent="." index="14"]
@@ -854,7 +979,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 10 )
+material/0 = SubResource( 8 )
 _sections_unfolded = [ "material" ]
 
 [node name="Grass Detail4" type="MeshInstance" parent="." index="15"]
@@ -871,7 +996,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 11 )
+material/0 = SubResource( 9 )
 _sections_unfolded = [ "material" ]
 
 [node name="Grass Detail5" type="MeshInstance" parent="." index="16"]
@@ -888,7 +1013,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 11 )
+material/0 = SubResource( 9 )
 _sections_unfolded = [ "material" ]
 
 [node name="Grass Detail6" type="MeshInstance" parent="." index="17"]
@@ -905,7 +1030,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 11 )
+material/0 = SubResource( 9 )
 _sections_unfolded = [ "material" ]
 
 [node name="Grass Detail7" type="MeshInstance" parent="." index="18"]
@@ -922,7 +1047,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 11 )
+material/0 = SubResource( 9 )
 _sections_unfolded = [ "material" ]
 
 [node name="StaticBody" type="StaticBody" parent="." index="19"]
@@ -951,7 +1076,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 8 )
+material/0 = SubResource( 10 )
 _sections_unfolded = [ "material" ]
 
 [node name="MeshInstance6" type="MeshInstance" parent="StaticBody" index="1"]
@@ -968,7 +1093,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 8 )
+material/0 = SubResource( 10 )
 _sections_unfolded = [ "material" ]
 
 [node name="MeshInstance2" type="MeshInstance" parent="StaticBody" index="2"]
@@ -985,7 +1110,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 8 )
+material/0 = SubResource( 10 )
 _sections_unfolded = [ "material" ]
 
 [node name="MeshInstance8" type="MeshInstance" parent="StaticBody" index="3"]
@@ -1002,7 +1127,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 8 )
+material/0 = SubResource( 10 )
 _sections_unfolded = [ "material" ]
 
 [node name="MeshInstance3" type="MeshInstance" parent="StaticBody" index="4"]
@@ -1019,7 +1144,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 8 )
+material/0 = SubResource( 10 )
 _sections_unfolded = [ "material" ]
 
 [node name="MeshInstance9" type="MeshInstance" parent="StaticBody" index="5"]
@@ -1036,7 +1161,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 8 )
+material/0 = SubResource( 10 )
 _sections_unfolded = [ "material" ]
 
 [node name="MeshInstance4" type="MeshInstance" parent="StaticBody" index="6"]
@@ -1053,7 +1178,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 8 )
+material/0 = SubResource( 10 )
 _sections_unfolded = [ "material" ]
 
 [node name="MeshInstance10" type="MeshInstance" parent="StaticBody" index="7"]
@@ -1070,7 +1195,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 8 )
+material/0 = SubResource( 10 )
 _sections_unfolded = [ "material" ]
 
 [node name="MeshInstance5" type="MeshInstance" parent="StaticBody" index="8"]
@@ -1087,7 +1212,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 8 )
+material/0 = SubResource( 10 )
 _sections_unfolded = [ "material" ]
 
 [node name="MeshInstance7" type="MeshInstance" parent="StaticBody" index="9"]
@@ -1104,12 +1229,12 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 8 )
+material/0 = SubResource( 10 )
 _sections_unfolded = [ "material" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="10"]
 
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 disabled = false
 
 
