@@ -52,7 +52,9 @@ func input_crouch(crouch):
 #---------------------------------------------------
 
 func _handle_overheat():
-	print("Dog overheated")
+	$Spatial.visible = false
+	$AshPileMesh.visible = true
+	$Particles2.emitting = true
 	
 #---------------------------------------------------
 

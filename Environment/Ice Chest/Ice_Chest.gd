@@ -1,6 +1,6 @@
 extends "res://Environment/InteractionObjects/InteractionObject.gd"
 
-export var cooling_amount = 20.0
+export var cooling_amount = 30.0
 export var heating_amount = 20.0
 
 var coolness_bias = 0.5

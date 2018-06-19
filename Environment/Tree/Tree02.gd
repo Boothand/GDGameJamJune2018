@@ -1,6 +1,6 @@
 extends "res://Environment/InteractionObjects/InteractionObject.gd"
 
-export var cooling_amount = 2.0
+export var cooling_amount = 7.0
 export var heat_event_amount = 20.0
 
 var dog_cooling_timer = 0.0

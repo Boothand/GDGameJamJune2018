@@ -18,6 +18,12 @@ config/icon="res://icon.png"
 
 GameManager="*res://UpperManagement/GameManager.gd"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/fullscreen=true
+
 [global]
 
 language=false

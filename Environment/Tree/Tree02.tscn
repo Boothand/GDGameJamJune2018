@@ -362,7 +362,7 @@ tracks/4/keys = {
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275837, 0 )
 script = ExtResource( 2 )
-cooling_amount = 1.8
+cooling_amount = 7.0
 heat_event_amount = 20.0
 
 [node name="Area" parent="." index="0"]

@@ -5,7 +5,7 @@ var max_temperature = 100.0
 
 var overheated = false
 var temperature = 10.0
-var temperature_growth = 1.0
+var temperature_growth = 5.0
 
 enum game_states { MENU, CUTSCENE, GAMEPLAY, OVERHEATED, VICTORY }
 var gamestate = MENU
@@ -18,6 +18,7 @@ signal fade_to_transparent
 
 signal on_paused
 signal on_resumed
+signal on_victory
 
 #---------------------------------------------------
 func _ready():
@@ -37,6 +38,13 @@ func toggle_pause():
 	else:
 		emit_signal("on_resumed")
 		
+#---------------------------------------------------
+
+func finish_level():
+	gamestate = VICTORY
+	emit_signal("on_victory")
+
+#---------------------------------------------------
 
 func restart_level():
 	get_tree().reload_current_scene()
@@ -45,6 +53,7 @@ func restart_level():
 		toggle_pause()
 		
 	temperature = 10.0
+	overheated = false
 	gamestate = MENU
 	
 #---------------------------------------------------
@@ -78,10 +87,14 @@ func _process(delta):
 	if gamestate == GAMEPLAY and !overheated and !get_tree().paused:
 		temperature += delta * temperature_growth
 		
-		if temperature > max_temperature:
+		if temperature >= max_temperature:
 			overheated = true
 			gamestate = OVERHEATED
 			emit_signal("on_overheat")
+			display_remark("You overheated.")
 			
 			yield(get_tree().create_timer(3.0), "timeout")
 			emit_signal("fade_to_black")
+			yield(get_tree().create_timer(1.0), "timeout")
+			restart_level()
+			
